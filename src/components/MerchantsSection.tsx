@@ -1,3 +1,4 @@
+import MerchantAnimationCards from "./MerchantAnimationCards"
 import MerchantsSectionCard from "./MerchantsSectionCard"
 import Image from 'next/image'
 
@@ -40,9 +41,10 @@ const MerchantsSection = () => {
 
                 {/* Блок с карточками */}
                 <div className="mt-[50px] sm:mt-[100px] flex flex-col gap-6">
+                    <MerchantAnimationCards />
                     {/* Карточка 1 - на всю ширину */}
 
-                    <MerchantsSectionCard
+                    {/* <MerchantsSectionCard
                         number="(01)"
                         title="Payment Methods"
                         description="From crypto to local bank transfers - we support 300+ payment methods to ensure your customers always find a way to pay."
@@ -53,10 +55,10 @@ const MerchantsSection = () => {
                             height={314}
                             className="flex-grow-0 flex-shrink-0 w-[217px] h-[210px] sm:min-w-[324px] sm:min-h-[314px] order-2 sm:order-none mx-auto sm:mx-0 my-6 sm:my-0"
                         />}
-                    />
+                    /> */}
 
                     {/* Карточка 2 */}
-                    <MerchantsSectionCard
+                    {/* <MerchantsSectionCard
                         number="(02)"
                         title="Payment Orchestration"
                         description="From crypto to local bank transfers - we support 300+ payment methods to ensure your customers always find a way to pay."
@@ -69,10 +71,10 @@ const MerchantsSection = () => {
                         />}
                         bgColor="bg-[#6044FF]"
                         textColor="text-[#F2F4F3]"
-                    />
+                    /> */}
 
                     {/* Карточка 3 */}
-                    <MerchantsSectionCard
+                    {/* <MerchantsSectionCard
                         number="(03)"
                         title="Chargeback Prevention"
                         description="Reduce risk and retain revenue with proactive chargeback management. We help identify patterns, prevent disputes, and guide you with best practices to keep chargebacks under control."
@@ -85,10 +87,10 @@ const MerchantsSection = () => {
                         />}
                         bgColor="bg-[#1E1E1E]"
                         textColor="text-[#FFFFFF]"
-                    />
+                    /> */}
 
                     {/* Карточка 4 */}
-                    <MerchantsSectionCard
+                    {/* <MerchantsSectionCard
                         number="(04)"
                         title="Fraud Monitoring"
                         description="Stay protected with real-time fraud detection powered by machine learning. Our system flags suspicious activity early-helping you prevent losses without blocking legitimate customers."
@@ -99,7 +101,7 @@ const MerchantsSection = () => {
                             height={314}
                             className="flex-grow-0 flex-shrink-0 w-[217px] h-[210px] sm:min-w-[324px] sm:min-h-[314px] order-2 sm:order-none mx-auto sm:mx-0 my-6 sm:my-0"
                         />}
-                    />
+                    /> */}
                 </div>
             </div>
         </section>
