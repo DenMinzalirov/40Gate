@@ -1,5 +1,3 @@
-'use client'
-
 const Hero = () => {
   return (
     <section className="w-full h-[844px] sm:h-[840px] relative flex justify-center">
