@@ -1,4 +1,68 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger)
+}
+
 const AboutUs = () => {
+    const number1Ref = useRef<HTMLDivElement>(null)
+    const number2Ref = useRef<HTMLDivElement>(null)
+    const number3Ref = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        // Функция для создания анимации счетчика
+        const createCounterAnimation = (element: HTMLElement, targetValue: number, suffix: string = '+', delay: number = 0) => {
+            const startValue = 0
+            const duration = 4
+            
+            // Создаем объект для хранения текущего значения
+            const obj = { value: startValue }
+            
+            gsap.fromTo(obj, 
+                { value: startValue },
+                {
+                    value: targetValue,
+                    duration: duration,
+                    delay: delay,
+                    ease: 'power2.out',
+                    onUpdate: function() {
+                        const currentValue = Math.floor(obj.value)
+                        element.innerHTML = `${currentValue}${suffix}`
+                    },
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 80%',
+                        end: 'bottom 20%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            )
+        }
+
+        // Анимация для первого числа (1000+)
+        if (number1Ref.current) {
+            createCounterAnimation(number1Ref.current, 1000, '+', 0)
+        }
+
+        // Анимация для второго числа (300+)
+        if (number2Ref.current) {
+            createCounterAnimation(number2Ref.current, 300, '+', 0.5)
+        }
+
+        // Анимация для третьего числа (30+)
+        if (number3Ref.current) {
+            createCounterAnimation(number3Ref.current, 30, '+', 1)
+        }
+
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
+    }, [])
+
     return (
         <section className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
             <div className="w-full max-w-[1440px] mx-auto">
@@ -14,7 +78,7 @@ const AboutUs = () => {
                             </div>
                             <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-3.5">
                                 <p className="flex-grow-0 flex-shrink-0 w-full sm:w-[905.6px] text-[55px] text-left text-[#1e1e1e] font-tinos">
-                                    40Gate — sounds like “Fortune” for a reason. Over 40 (actually close to 100) providers onboard.
+                                    40Gate — sounds like "Fortune" for a reason. Over 40 (actually close to 100) providers onboard.
                                 </p>
                             </div>
                         </div>
@@ -26,9 +90,9 @@ const AboutUs = () => {
 
                     {/* Статистика */}
                     <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-[85px]">
-                        {/* Первая статистика - 1000M+ */}
+                        {/* Первая статистика - 1000+ */}
                         <div className="flex flex-wrap justify-between items-end w-full">
-                            <div className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#6044ff] font-tinos leading-none flex items-center">
+                            <div ref={number1Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#6044ff] font-tinos leading-none flex items-center">
                                 1000+
                             </div>
                             <div className="h-[92px]">
@@ -49,7 +113,7 @@ const AboutUs = () => {
 
                         {/* Вторая статистика - 300+ */}
                         <div className="flex flex-wrap justify-between items-end w-full">
-                            <div className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#6044ff] font-tinos leading-none flex items-center">
+                            <div ref={number2Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#6044ff] font-tinos leading-none flex items-center">
                                 300+
                             </div>
                             <div className="h-[92px]">
@@ -66,11 +130,11 @@ const AboutUs = () => {
                         </div>
 
                         {/* Разделительная линия */}
-                        <div className="self-stretch h-[1px] bg-[#1e1e1e] border-dashed border-t border-[#1e1e1e]"></div>
+                        <div className="self-stretch h-[1px] bg-[#1e1e1e] border-dashed border-t border-[#1e1e1e] w-full"></div>
 
                         {/* Третья статистика - 30+ */}
                         <div className="flex flex-wrap justify-between items-end w-full">
-                            <div className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#6044ff] font-tinos leading-none flex items-center">
+                            <div ref={number3Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#6044ff] font-tinos leading-none flex items-center">
                                 30+
                             </div>
                             <div className="h-[92px]">
