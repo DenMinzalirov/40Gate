@@ -1,3 +1,5 @@
+import React from 'react';
+
 const MerchantsSectionCard = ({ 
     number, 
     title, 
@@ -9,7 +11,7 @@ const MerchantsSectionCard = ({
     number: string, 
     title: string, 
     description: string, 
-    image: any,
+    image: React.ReactNode,
     bgColor?: string,
     textColor?: string
 }) => {

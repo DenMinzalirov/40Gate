@@ -56,7 +56,7 @@ const MerchantAnimationCards = () => {
         })
 
         setBlockHeights(newHeights)
-    }, [scrollY])
+    }, [scrollY, blockRefs])
 
     return (
         <div className="w-full">

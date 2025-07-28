@@ -1,6 +1,4 @@
 import MerchantAnimationCards from "./MerchantAnimationCards"
-import MerchantsSectionCard from "./MerchantsSectionCard"
-import Image from 'next/image'
 
 const MerchantsSection = () => {
     return (

@@ -1,7 +1,7 @@
 import Hero from '@/components/Hero'
 import MerchantsSection from '@/components/MerchantsSection'
-import MerchantAnimationCards from '@/components/MerchantAnimationCards'
-import Temp2 from '@/components/Temp2'
+import PartnerWithUs from '@/components/PartnerWithUs'
+import CustomPaymentSolutions from '@/components/CustomPaymentSolutions'
 
 export default function Home() {
   return (
@@ -10,6 +10,8 @@ export default function Home() {
       {/* <MerchantAnimationCards /> */}
       {/* <Temp2 /> */}
       <MerchantsSection />
+      <PartnerWithUs />
+      <CustomPaymentSolutions />
     </main>
   )
 }
