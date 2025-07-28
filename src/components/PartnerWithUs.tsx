@@ -13,6 +13,7 @@ if (typeof window !== 'undefined') {
 const PartnerWithUs = () => {
     const textRef = useRef<HTMLParagraphElement>(null)
     const sectionRef = useRef<HTMLElement>(null)
+    const cursorRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         const textElement = textRef.current
@@ -53,8 +54,89 @@ const PartnerWithUs = () => {
         }
     }, [])
 
+    // Кастомный курсор (только для десктопа)
+    useEffect(() => {
+        const cursor = cursorRef.current
+        const section = sectionRef.current
+        if (!cursor || !section) return
+
+        // Проверяем, что это десктоп (ширина экрана > 640px)
+        const isDesktop = window.innerWidth > 640
+        
+        if (!isDesktop) {
+            // На мобильных устройствах скрываем курсор
+            cursor.style.display = 'none'
+            return
+        }
+
+        let isInSection = false
+        let animationId: number
+
+        const updateCursor = (e: MouseEvent) => {
+            if (!isInSection) return
+            
+            // Используем requestAnimationFrame для плавности
+            cancelAnimationFrame(animationId)
+            animationId = requestAnimationFrame(() => {
+                cursor.style.transform = `translate(${e.clientX - 65}px, ${e.clientY - 65}px)`
+            })
+        }
+
+        const handleMouseEnter = () => {
+            isInSection = true
+            cursor.classList.add('visible')
+            section.style.cursor = 'none'
+        }
+
+        const handleMouseLeave = () => {
+            isInSection = false
+            cursor.classList.remove('visible')
+            section.style.cursor = 'auto'
+            cancelAnimationFrame(animationId)
+        }
+
+        // Обработчик изменения размера окна
+        const handleResize = () => {
+            const isDesktopNow = window.innerWidth > 640
+            
+            if (!isDesktopNow) {
+                // Переключились на мобильный - скрываем курсор
+                cursor.style.display = 'none'
+                cursor.classList.remove('visible')
+                section.style.cursor = 'auto'
+                isInSection = false
+                cancelAnimationFrame(animationId)
+            } else {
+                // Переключились на десктоп - показываем курсор
+                cursor.style.display = 'flex'
+            }
+        }
+
+        // Обработчики событий для секции
+        section.addEventListener('mouseenter', handleMouseEnter)
+        section.addEventListener('mouseleave', handleMouseLeave)
+        section.addEventListener('mousemove', updateCursor, { passive: true })
+        window.addEventListener('resize', handleResize)
+
+        return () => {
+            // Восстанавливаем стандартный курсор для секции
+            section.style.cursor = 'auto'
+            section.removeEventListener('mouseenter', handleMouseEnter)
+            section.removeEventListener('mouseleave', handleMouseLeave)
+            section.removeEventListener('mousemove', updateCursor)
+            window.removeEventListener('resize', handleResize)
+            cancelAnimationFrame(animationId)
+        }
+    }, [])
+
     return (
-        <section ref={sectionRef} className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
+        <>
+            {/* Кастомный курсор */}
+            <div ref={cursorRef} className="custom-cursor">
+                Contact Us
+            </div>
+            
+            <section ref={sectionRef} className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
             <div className="w-full max-w-[1440px] mx-auto">
                 <div className="flex flex-col justify-center items-start sm:items-end self-stretch flex-grow-0 flex-shrink-0 relative gap-8 sm:gap-[65px] py-6 sm:py-[50px]">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end self-stretch flex-grow-0 flex-shrink-0 gap-6 sm:gap-0">
@@ -97,11 +179,11 @@ const PartnerWithUs = () => {
                     </div>
 
                     {/* Десктопная кнопка Contact Us */}
-                    <div className="hidden sm:flex justify-center items-center flex-grow-0 flex-shrink-0 w-[130px] h-[130px] gap-2.5 p-2.5 rounded-[500px] bg-[#6044ff] absolute left-[779.22px] top-[390px]">
+                    {/* <div className="hidden sm:flex justify-center items-center flex-grow-0 flex-shrink-0 w-[130px] h-[130px] gap-2.5 p-2.5 rounded-[500px] bg-[#6044ff] absolute left-[779.22px] top-[390px]">
                         <p className="flex-grow-0 flex-shrink-0 opacity-80 text-base text-left text-white font-instrument-sans">
                             Contact Us
                         </p>
-                    </div>
+                    </div> */}
                     {/* Мобильная кнопка Contact Us */}
                     <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#6044ff] sm:hidden">
                         <p className="flex-grow-0 flex-shrink-0 text-base text-left text-white font-instrument-sans">Contact Us</p>
@@ -109,6 +191,7 @@ const PartnerWithUs = () => {
                 </div>
             </div>
         </section>
+        </>
     )
 }
 
