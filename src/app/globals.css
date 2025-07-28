@@ -25,20 +25,18 @@ a {
 .stack-cards__item {
   position: relative; /* fallback для браузеров без sticky */
   position: sticky;
-  top: 50vh; /* позиция при фиксации */
-  height: 400px; /* фиксированная высота */
+  top: 0; /* позиция при фиксации - соответствует cardTop в JavaScript */
+  height: 525px;
   margin-bottom: var(--stack-cards-gap);
   transition: transform 0.1s ease-out;
 }
 
-.stack-cards__item:last-child {
-  margin-bottom: 0;
+@media (min-width: 640px) {
+  .stack-cards__item {
+    height: 400px;
+  }
 }
 
-/* Адаптивность для мобильных устройств */
-@media (max-width: 640px) {
-  .stack-cards__item {
-    position: relative;
-    top: auto;
-  }
+.stack-cards__item:last-child {
+  margin-bottom: 0;
 }

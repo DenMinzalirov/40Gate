@@ -1,11 +1,194 @@
-import MerchantAnimationCards from "./MerchantAnimationCards"
+'use client'
+
+import { useEffect, useRef } from 'react'
+import Image from 'next/image'
+import MerchantsSectionCard from './MerchantsSectionCard'
 
 const MerchantsSection = () => {
+    const stackCardsRef = useRef<HTMLUListElement>(null)
+
+    const blocks = [
+        {
+            number: "(01)",
+            title: "Payment Methods",
+            description: "From crypto to local bank transfers - we support 300+ payment methods to ensure your customers always find a way to pay.",
+            image: "/payment-methods.png",
+            bgColor: "bg-[#F2F4F3]",
+            textColor: "text-[#1E1E1E]"
+        },
+        {
+            number: "(02)",
+            title: "Payment Orchestration",
+            description: "From crypto to local bank transfers - we support 300+ payment methods to ensure your customers always find a way to pay.",
+            image: "/payment-orchestration.png",
+            bgColor: "bg-[#6044FF]",
+            textColor: "text-[#F2F4F3]"
+        },
+        {
+            number: "(03)",
+            title: "Chargeback Prevention",
+            description: "Reduce risk and retain revenue with proactive chargeback management. We help identify patterns, prevent disputes, and guide you with best practices to keep chargebacks under control.",
+            image: "/chargeback-prevention.png",
+            bgColor: "bg-[#1E1E1E]",
+            textColor: "text-[#FFFFFF]"
+        },
+        {
+            number: "(04)",
+            title: "Fraud Monitoring",
+            description: "Stay protected with real-time fraud detection powered by machine learning. Our system flags suspicious activity early-helping you prevent losses without blocking legitimate customers.",
+            image: "/fraud-monitoring.png",
+            bgColor: "bg-[#F2F4F3]",
+            textColor: "text-[#1E1E1E]"
+        }
+    ]
+
+    useEffect(() => {
+        if (!stackCardsRef.current) return
+
+        const element = stackCardsRef.current
+
+        const items = element.getElementsByClassName('js-stack-cards__item')
+        let scrollingFn: (() => void) | false = false
+        let scrolling = false
+
+        // Сохранение CSS свойств карточек
+        const setStackCards = () => {
+            const marginY = 24 // gap между карточками в px
+            const elementHeight = element.offsetHeight
+            const cardStyle = getComputedStyle(items[0] as Element)
+            // Получаем актуальное значение top из стилей карточки
+            const cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue('top'))) || 200
+            // console.log({ cardTop })
+            const cardHeight = Math.floor(parseFloat(cardStyle.getPropertyValue('height')))
+            const windowHeight = window.innerHeight
+
+            // Линия начала анимации - можно настроить
+            const animationStartLine = cardTop + 600 // смещаем на 300px ниже sticky позиции
+            // console.log({ animationStartLine })
+            // Логирование координаты нижней границы текстового блока
+            // const textBlock = document.getElementById('text-block') as HTMLElement
+            // if (textBlock) {
+            //     const textBlockRect = textBlock.getBoundingClientRect()
+            //     const textBlockBottom = textBlockRect.bottom
+            //     console.log('Text block bottom coordinate:', textBlockBottom)
+            //     console.log('Text block rect:', textBlockRect)
+            // }
+
+            // Установка padding для контейнера
+            element.style.paddingBottom = (marginY * (items.length - 1)) + 'px'
+
+            // Установка начальных позиций карточек
+            for (let i = 0; i < items.length; i++) {
+                (items[i] as HTMLElement).style.transform = `translateY(${marginY * i}px)`
+            }
+
+            return { marginY, elementHeight, cardTop, cardHeight, windowHeight, animationStartLine }
+        }
+
+        // Анимация карточек
+        const animateStackCards = () => {
+            const { marginY, elementHeight, cardTop, cardHeight, windowHeight, animationStartLine } = setStackCards()
+            // console.log({cardTop, cardHeight, windowHeight, elementHeight, marginY});
+
+            const top = element.getBoundingClientRect().top
+            // console.log('Element top position:', top, 'Animation start line:', animationStartLine)
+            
+            // Логируем когда блок прилипает к верху
+            if (top <= 200) {
+                console.log('🚀 Блок прилип к верху! top =', top)
+            }
+            
+            // Логируем позицию текстового блока
+            const textBlock = document.getElementById('text-block') as HTMLElement
+            if (textBlock) {
+                const textBlockRect = textBlock.getBoundingClientRect()
+                const textBlockTop = textBlockRect.top
+                console.log('📝 Text block top position:', textBlockTop)
+                
+                // Когда текстовый блок достиг верхней границы браузера
+                if (textBlockTop <= 0) {
+                    const textBlockHeight = textBlockRect.height
+                    console.log('🎯 Текстовый блок достиг верхней границы браузера!')
+                    console.log('📏 Полная высота текстового блока:', textBlockHeight, 'px')
+                    console.log('📍 Позиция top:', textBlockTop, 'px')
+                    
+                    // Устанавливаем высоту текстового блока как top для карточек
+                    for (let i = 0; i < items.length; i++) {
+                        ; (items[i] as HTMLElement).style.top = `${textBlockHeight}px`
+                    }
+                    console.log('🎯 Установлен top для карточек:', textBlockHeight, 'px')
+                }
+            }
+
+            if (animationStartLine - top + windowHeight - elementHeight - cardHeight + marginY + marginY * items.length > 0) {
+                scrolling = false
+                return
+            }
+
+            for (let i = 0; i < items.length; i++) {
+                const scrollingDistance = animationStartLine - top - i * (cardHeight + marginY)
+                
+                if (scrollingDistance > 0) {
+                    // Карточка еще не достигла линии анимации - остается в исходной позиции
+                    ; (items[i] as HTMLElement).style.transform = `translateY(0px)`
+                    // console.log(`📌 Карточка ${i}: еще не достигла линии анимации, scrollingDistance = ${scrollingDistance}`)
+                } else {
+                    // Карточка достигла линии анимации - перемещается в позицию стекирования
+                    ; (items[i] as HTMLElement).style.transform = `translateY(${marginY * i}px)`
+                    // console.log(`🎯 Карточка ${i}: достигла линии анимации, перемещается в позицию ${marginY * i}px`)
+                }
+            }
+            scrolling = false
+        }
+
+        // Обработчик скролла
+        const stackCardsScrolling = () => {
+            if (scrolling) return
+            scrolling = true
+            requestAnimationFrame(animateStackCards)
+        }
+
+        // Intersection Observer для оптимизации
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                if (scrollingFn) return
+                scrollingFn = stackCardsScrolling
+                window.addEventListener('scroll', scrollingFn)
+            } else {
+                if (!scrollingFn) return
+                window.removeEventListener('scroll', scrollingFn)
+                scrollingFn = false
+            }
+        }, { threshold: [0, 1] })
+
+        observer.observe(element)
+
+        // Обработчик resize
+        const handleResize = () => {
+            setStackCards()
+            animateStackCards()
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return () => {
+            observer.disconnect()
+            window.removeEventListener('resize', handleResize)
+            if (scrollingFn) {
+                window.removeEventListener('scroll', scrollingFn)
+            }
+        }
+    }, [])
+
     return (
         <section className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
             <div className="w-full max-w-[1440px] mx-auto">
-                {/* Единая структура с адаптивными классами */}
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end self-stretch flex-grow-0 flex-shrink-0 relative gap-6 sm:gap-0">
+                {/* Текстовый блок для заполнения пустого пространства */}
+                <div
+                    id="text-block"
+                    className="flex flex-col sm:flex-row sm:justify-between sm:items-end self-stretch flex-grow-0 flex-shrink-0 relative gap-6 sm:gap-0 mb-[100px]"
+                    style={{ position: 'sticky', top: 0 }}
+                >
                     <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 w-full sm:max-w-[925px] gap-6 sm:gap-[30px]">
                         <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-3">
                             {/* SVG иконка - адаптивная */}
@@ -37,70 +220,29 @@ const MerchantsSection = () => {
                     </p>
                 </div>
 
-                {/* Блок с карточками */}
-                <div className="mt-[50px] sm:mt-[100px] flex flex-col gap-6">
-                    <MerchantAnimationCards />
-                    {/* Карточка 1 - на всю ширину */}
-
-                    {/* <MerchantsSectionCard
-                        number="(01)"
-                        title="Payment Methods"
-                        description="From crypto to local bank transfers - we support 300+ payment methods to ensure your customers always find a way to pay."
-                        image={<Image
-                            src="/payment-methods.png"
-                            alt="Payment Methods Illustration"
-                            width={324}
-                            height={314}
-                            className="flex-grow-0 flex-shrink-0 w-[217px] h-[210px] sm:min-w-[324px] sm:min-h-[314px] order-2 sm:order-none mx-auto sm:mx-0 my-6 sm:my-0"
-                        />}
-                    /> */}
-
-                    {/* Карточка 2 */}
-                    {/* <MerchantsSectionCard
-                        number="(02)"
-                        title="Payment Orchestration"
-                        description="From crypto to local bank transfers - we support 300+ payment methods to ensure your customers always find a way to pay."
-                        image={<Image
-                            src="/payment-orchestration.png"
-                            alt="Payment Orchestration"
-                            width={324}
-                            height={314}
-                            className="flex-grow-0 flex-shrink-0 w-[217px] h-[210px] sm:min-w-[324px] sm:min-h-[314px] order-2 sm:order-none mx-auto sm:mx-0 my-6 sm:my-0"
-                        />}
-                        bgColor="bg-[#6044FF]"
-                        textColor="text-[#F2F4F3]"
-                    /> */}
-
-                    {/* Карточка 3 */}
-                    {/* <MerchantsSectionCard
-                        number="(03)"
-                        title="Chargeback Prevention"
-                        description="Reduce risk and retain revenue with proactive chargeback management. We help identify patterns, prevent disputes, and guide you with best practices to keep chargebacks under control."
-                        image={<Image
-                            src="/chargeback-prevention.png"
-                            alt="Chargeback Prevention"
-                            width={324}
-                            height={314}
-                            className="flex-grow-0 flex-shrink-0 w-[217px] h-[210px] sm:min-w-[324px] sm:min-h-[314px] order-2 sm:order-none mx-auto sm:mx-0 my-6 sm:my-0"
-                        />}
-                        bgColor="bg-[#1E1E1E]"
-                        textColor="text-[#FFFFFF]"
-                    /> */}
-
-                    {/* Карточка 4 */}
-                    {/* <MerchantsSectionCard
-                        number="(04)"
-                        title="Fraud Monitoring"
-                        description="Stay protected with real-time fraud detection powered by machine learning. Our system flags suspicious activity early-helping you prevent losses without blocking legitimate customers."
-                        image={<Image
-                            src="/fraud-monitoring.png"
-                            alt="Fraud Monitoring"
-                            width={324}
-                            height={314}
-                            className="flex-grow-0 flex-shrink-0 w-[217px] h-[210px] sm:min-w-[324px] sm:min-h-[314px] order-2 sm:order-none mx-auto sm:mx-0 my-6 sm:my-0"
-                        />}
-                    /> */}
-                </div>
+                <ul ref={stackCardsRef} className="stack-cards js-stack-cards">
+                    {blocks.map((block, index) => (
+                        <li
+                            key={index}
+                            className={`stack-cards__item js-stack-cards__item`}
+                        >
+                            <MerchantsSectionCard
+                                number={block.number}
+                                title={block.title}
+                                description={block.description}
+                                image={<Image
+                                    src={block.image}
+                                    alt={block.title}
+                                    width={324}
+                                    height={314}
+                                    className="flex-grow-0 flex-shrink-0 w-[217px] h-[210px] sm:min-w-[324px] sm:min-h-[314px] order-2 sm:order-none mx-auto sm:mx-0 my-6 sm:my-0"
+                                />}
+                                bgColor={block.bgColor}
+                                textColor={block.textColor}
+                            />
+                        </li>
+                    ))}
+                </ul>
             </div>
         </section>
     )
