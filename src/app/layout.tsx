@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${instrumentSans.variable} ${tinos.variable}`}>
       <body>
-        <Navigation />
+        {/* <Navigation /> */}
         {children}
       </body>
     </html>
