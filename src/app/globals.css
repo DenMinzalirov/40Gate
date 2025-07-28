@@ -11,6 +11,11 @@ body {
   font-family: var(--font-instrument-sans);
 }
 
+/* Тестовый класс для проверки шрифта Tinos */
+.font-tinos {
+  font-family: var(--font-tinos);
+}
+
 a {
   color: inherit;
   text-decoration: none;
