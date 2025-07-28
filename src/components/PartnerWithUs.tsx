@@ -1,6 +1,60 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SplitType from 'split-type'
+
+// Регистрируем плагин ScrollTrigger
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger)
+}
+
 const PartnerWithUs = () => {
+    const textRef = useRef<HTMLParagraphElement>(null)
+    const sectionRef = useRef<HTMLElement>(null)
+
+    useEffect(() => {
+        const textElement = textRef.current
+        const sectionElement = sectionRef.current
+        
+        if (!textElement || !sectionElement) return
+
+        // Добавляем текст в элемент
+        textElement.textContent = "Whether you're a PSP, EMI, payment agent, or a MoR - if you're in the payments industry, we speak your language. Always open to partnerships that drive value and scale. Let's explore it."
+
+        // Разбиваем текст на символы с помощью SplitType
+        const splitText = new SplitType(textElement, { types: 'chars' })
+        const chars = splitText.chars
+
+        // Устанавливаем начальное состояние
+        gsap.set(chars, { opacity: 0.4 })
+
+        // Создаем анимацию с ScrollTrigger
+        gsap.to(chars, {
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.02, // Задержка между символами
+            ease: "none",
+            scrollTrigger: {
+                trigger: sectionElement,
+                start: "center center", // Начинаем когда центр секции достигает центра экрана
+                end: "+=500", // Заканчиваем через 800px скролла
+                scrub: 1, // Плавная анимация при скролле
+                onUpdate: (self) => {
+                    console.log('ScrollTrigger progress:', self.progress)
+                }
+            }
+        })
+
+        return () => {
+            // Очищаем ScrollTrigger при размонтировании
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
+    }, [])
+
     return (
-        <section className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
+        <section ref={sectionRef} className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
             <div className="w-full max-w-[1440px] mx-auto">
                 <div className="flex flex-col justify-center items-start sm:items-end self-stretch flex-grow-0 flex-shrink-0 relative gap-8 sm:gap-[65px] py-6 sm:py-[50px]">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end self-stretch flex-grow-0 flex-shrink-0 gap-6 sm:gap-0">
@@ -22,13 +76,7 @@ const PartnerWithUs = () => {
                                 </p>
                             </div>
                             <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-3.5">
-                                <p className="flex-grow-0 flex-shrink-0 w-full sm:max-w-[1189px] text-3xl sm:text-[55px] text-left font-tinos leading-tight">
-                                    <span className="flex-grow-0 flex-shrink-0 w-full sm:max-w-[1189px] text-3xl sm:text-[55px] text-left text-[#1e1e1e] font-tinos leading-tight">
-                                        Whether you&apos;re a PSP, EMI, payment agent, or a MoR - if you&apos;re in the pay
-                                    </span>
-                                    <span className="flex-grow-0 flex-shrink-0 w-full sm:max-w-[1189px] text-3xl sm:text-[55px] text-left text-[#1e1e1e]/40 font-tinos leading-tight">
-                                        ments industry, we speak your language. Always open to partnerships that drive value and scale. Let&apos;s explore it.
-                                    </span>
+                                <p ref={textRef} className="text-animation flex-grow-0 flex-shrink-0 w-full sm:max-w-[1189px] text-3xl sm:text-[55px] text-left text-[#1e1e1e] font-tinos leading-tight">
                                 </p>
                             </div>
                         </div>

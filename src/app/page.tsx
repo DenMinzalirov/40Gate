@@ -10,6 +10,9 @@ export default function Home() {
       <MerchantsSection />
       <PartnerWithUs />
       <CustomPaymentSolutions />
+      <CustomPaymentSolutions />
+      <CustomPaymentSolutions />
+      <CustomPaymentSolutions />
     </main>
   )
 }

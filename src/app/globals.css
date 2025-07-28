@@ -40,3 +40,8 @@ a {
 .stack-cards__item:last-child {
   margin-bottom: 0;
 }
+
+/* Анимация закрашивания текста */
+.text-animation {
+  /* GSAP будет управлять анимацией */
+}

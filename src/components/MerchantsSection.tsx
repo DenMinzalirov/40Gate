@@ -103,14 +103,14 @@ const MerchantsSection = () => {
             if (textBlock) {
                 const textBlockRect = textBlock.getBoundingClientRect()
                 const textBlockTop = textBlockRect.top
-                console.log('📝 Text block top position:', textBlockTop)
+                // console.log('📝 Text block top position:', textBlockTop)
                 
                 // Когда текстовый блок достиг верхней границы браузера
                 if (textBlockTop <= 0) {
                     const textBlockHeight = textBlockRect.height
-                    console.log('🎯 Текстовый блок достиг верхней границы браузера!')
-                    console.log('📏 Полная высота текстового блока:', textBlockHeight, 'px')
-                    console.log('📍 Позиция top:', textBlockTop, 'px')
+                    // console.log('🎯 Текстовый блок достиг верхней границы браузера!')
+                    // console.log('📏 Полная высота текстового блока:', textBlockHeight, 'px')
+                    // console.log('📍 Позиция top:', textBlockTop, 'px')
                     
                     // Устанавливаем высоту текстового блока как top для карточек
                     for (let i = 0; i < items.length; i++) {
@@ -136,6 +136,11 @@ const MerchantsSection = () => {
                     // Карточка достигла линии анимации - перемещается в позицию стекирования
                     ; (items[i] as HTMLElement).style.transform = `translateY(${marginY * i}px)`
                     // console.log(`🎯 Карточка ${i}: достигла линии анимации, перемещается в позицию ${marginY * i}px`)
+                    
+                    // Логируем видимую часть карточки
+                    // const cardRect = (items[i] as HTMLElement).getBoundingClientRect()
+                    // const visibleHeight = Math.min(cardRect.bottom, window.innerHeight) - Math.max(cardRect.top, 0)
+                    // console.log(`👁️ Карточка ${i}: видимая высота = ${visibleHeight}px, top = ${cardRect.top}, bottom = ${cardRect.bottom}`)
                 }
             }
             scrolling = false
