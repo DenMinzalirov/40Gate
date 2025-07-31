@@ -3,10 +3,12 @@
 import { createContext, useContext, ReactNode } from 'react'
 import { useContactModal } from '@/hooks/useContactModal'
 import ContactModal from './ContactModal'
+import ThankYouModal from './ThankYouModal'
 
 interface ContactModalContextType {
   openModal: () => void
   closeModal: () => void
+  submitForm: () => void
 }
 
 const ContactModalContext = createContext<ContactModalContextType | undefined>(undefined)
@@ -24,12 +26,24 @@ interface ContactModalProviderProps {
 }
 
 export const ContactModalProvider = ({ children }: ContactModalProviderProps) => {
-  const { isOpen, openModal, closeModal } = useContactModal()
+  const { 
+    isContactOpen, 
+    isThankYouOpen, 
+    openContactModal, 
+    closeContactModal, 
+    closeThankYouModal,
+    submitForm 
+  } = useContactModal()
 
   return (
-    <ContactModalContext.Provider value={{ openModal, closeModal }}>
+    <ContactModalContext.Provider value={{ 
+      openModal: openContactModal, 
+      closeModal: closeContactModal,
+      submitForm 
+    }}>
       {children}
-      <ContactModal isOpen={isOpen} onClose={closeModal} />
+      <ContactModal isOpen={isContactOpen} onClose={closeContactModal} onSubmit={submitForm} />
+      <ThankYouModal isOpen={isThankYouOpen} onClose={closeThankYouModal} />
     </ContactModalContext.Provider>
   )
 } 

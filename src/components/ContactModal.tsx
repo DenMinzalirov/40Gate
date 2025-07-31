@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button'
 interface ContactModalProps {
   isOpen: boolean
   onClose: () => void
+  onSubmit: () => void
 }
 
 interface FormData {
@@ -23,7 +24,7 @@ interface FormData {
   partnership: boolean
 }
 
-const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
+const ContactModal = ({ isOpen, onClose, onSubmit }: ContactModalProps) => {
   const [formData, setFormData] = useState<FormData>({
     email: '',
     companyName: '',
@@ -46,7 +47,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     e.preventDefault()
     console.log('Form submitted:', formData)
     // Здесь будет логика отправки формы
-    onClose()
+    onSubmit()
   }
 
   return (

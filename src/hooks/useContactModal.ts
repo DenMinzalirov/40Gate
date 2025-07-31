@@ -1,19 +1,37 @@
 import { useState, useCallback } from 'react'
 
 export const useContactModal = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isContactOpen, setIsContactOpen] = useState(false)
+  const [isThankYouOpen, setIsThankYouOpen] = useState(false)
 
-  const openModal = useCallback(() => {
-    setIsOpen(true)
+  const openContactModal = useCallback(() => {
+    setIsContactOpen(true)
   }, [])
 
-  const closeModal = useCallback(() => {
-    setIsOpen(false)
+  const closeContactModal = useCallback(() => {
+    setIsContactOpen(false)
   }, [])
+
+  const openThankYouModal = useCallback(() => {
+    setIsThankYouOpen(true)
+  }, [])
+
+  const closeThankYouModal = useCallback(() => {
+    setIsThankYouOpen(false)
+  }, [])
+
+  const submitForm = useCallback(() => {
+    closeContactModal()
+    openThankYouModal()
+  }, [closeContactModal, openThankYouModal])
 
   return {
-    isOpen,
-    openModal,
-    closeModal
+    isContactOpen,
+    isThankYouOpen,
+    openContactModal,
+    closeContactModal,
+    openThankYouModal,
+    closeThankYouModal,
+    submitForm
   }
 } 
