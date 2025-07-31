@@ -57,6 +57,7 @@ const MerchantsSection = () => {
             const elementHeight = element.offsetHeight
             const cardStyle = getComputedStyle(items[0] as Element)
             // Получаем актуальное значение top из стилей карточки
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue('top'))) || 200
             // console.log({ cardTop })
             const cardHeight = Math.floor(parseFloat(cardStyle.getPropertyValue('height')))
@@ -107,7 +108,7 @@ const MerchantsSection = () => {
                 
                 // Когда текстовый блок достиг верхней границы браузера
                 if (textBlockTop <= 0) {
-                    const textBlockHeight = textBlockRect.height
+                    const textBlockHeight = textBlockRect.height + 100
                     // console.log('🎯 Текстовый блок достиг верхней границы браузера!')
                     // console.log('📏 Полная высота текстового блока:', textBlockHeight, 'px')
                     // console.log('📍 Позиция top:', textBlockTop, 'px')
@@ -191,10 +192,10 @@ const MerchantsSection = () => {
                 {/* Текстовый блок для заполнения пустого пространства */}
                 <div
                     id="text-block"
-                    className="flex flex-col sm:flex-row sm:justify-between sm:items-end self-stretch flex-grow-0 flex-shrink-0 relative gap-6 sm:gap-0 mb-[100px]"
+                    className="flex flex-col sm:flex-row sm:justify-between sm:items-end self-stretch flex-grow-0 relative gap-6 sm:gap-0 mb-[100px]"
                     style={{ position: 'sticky', top: 0 }}
                 >
-                    <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 w-full sm:max-w-[925px] gap-6 sm:gap-[30px]">
+                    <div className="flex flex-col justify-start items-start flex-grow-0 w-full gap-6 sm:gap-[30px]">
                         <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-3">
                             {/* SVG иконка - адаптивная */}
                             <svg
@@ -212,7 +213,7 @@ const MerchantsSection = () => {
                                 For merchants
                             </p>
                         </div>
-                        <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-3.5">
+                        <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 relative gap-3.5">
                             <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:max-w-[1067px] text-3xl sm:text-[55px] text-left text-[#1e1e1e] font-tinos leading-tight">
                                 AI-powered tools to scale your business — from smart cascading to chargeback prevention.
                                 Modern payment infrastructure built with machine learning created for global growth.

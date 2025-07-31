@@ -22,7 +22,7 @@ const PartnerWithUs = () => {
         if (!textElement || !sectionElement) return
 
         // Добавляем текст в элемент
-        textElement.textContent = "Whether you're a PSP, EMI, payment agent, or a MoR - if you're in the payments industry, we speak your language. Always open to partnerships that drive value and scale. Let's explore it."
+        textElement.innerHTML = "Whether you're a PSP, EMI, payment agent,<br /> or a MoR - if you're in the payments industry,<br /> we speak your language. Always open to partnerships<br /> that drive value and scale. Let's explore it."
 
         // Разбиваем текст на символы с помощью SplitType
         const splitText = new SplitType(textElement, { types: 'chars' })

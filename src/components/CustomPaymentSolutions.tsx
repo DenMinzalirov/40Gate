@@ -24,7 +24,7 @@ const CustomPaymentSolutions = () => {
                             </div>
                             <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-3.5">
                                 <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[925px] text-[55px] text-left text-[#1e1e1e] font-tinos leading-tight">
-                                    We offer a full suite of global payment options - cards, OB, APM's, crypto - all designed to match your specific needs.
+                                    We offer a full suite of global payment options - cards, OB, APM&apos;s, crypto - all designed to match your specific needs.
                                 </p>
                             </div>
                         </div>
@@ -37,21 +37,21 @@ const CustomPaymentSolutions = () => {
                     {/* Карточки с решениями */}
                     <div className="flex flex-col sm:flex-row justify-start items-center self-stretch flex-grow-0 flex-shrink-0 gap-5 sm:gap-2.5">
                         {/* Карточка 1 - Bank Cards */}
-                        <div className="flex flex-col justify-between items-start flex-grow w-full sm:h-[358px] relative overflow-hidden p-6 sm:p-10 rounded-[20px] sm:rounded-[40px] bg-[#f2f4f3]">
-                            <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4 sm:gap-6">
-                                <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-lg sm:text-2xl text-left text-[#1e1e1e]">
+                        <div className="payment-card-hover flex flex-col justify-between items-start flex-grow w-full sm:h-[358px] relative overflow-hidden p-6 sm:p-10 rounded-[20px] sm:rounded-[40px] bg-[#f2f4f3]">
+                            <div className="payment-card-content flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4 sm:gap-6">
+                                <p className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-lg sm:text-2xl text-left text-[#1e1e1e]">
                                     (01)
                                 </p>
-                                <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-2xl sm:text-[40px] text-left text-[#1e1e1e]">
+                                <p className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-2xl sm:text-[40px] text-left text-[#1e1e1e]">
                                     Bank Cards
                                 </p>
                             </div>
-                            <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] opacity-80 text-sm sm:text-base text-left text-[#1e1e1e] mt-4 sm:mt-0">
-                                <span className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] opacity-80 text-sm sm:text-base text-left text-[#1e1e1e]">
+                            <p className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] opacity-80 text-sm sm:text-base text-left text-[#1e1e1e] mt-4 sm:mt-auto">
+                                <span className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] opacity-80 text-sm sm:text-base text-left text-[#1e1e1e]">
                                     We support all major payment card
                                 </span>
                                 <br />
-                                <span className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] opacity-80 text-sm sm:text-base text-left text-[#1e1e1e]">
+                                <span className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] opacity-80 text-sm sm:text-base text-left text-[#1e1e1e]">
                                     providers all over the world.
                                 </span>
                             </p>
@@ -59,32 +59,32 @@ const CustomPaymentSolutions = () => {
                         </div>
 
                         {/* Карточка 2 - Crypto Payments */}
-                        <div className="flex flex-col justify-between items-start flex-grow w-full sm:h-[358px] relative overflow-hidden p-6 sm:p-10 rounded-[20px] sm:rounded-[40px] bg-[#f2f4f3]">
-                            <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4 sm:gap-6">
-                                <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-lg sm:text-2xl text-left text-[#1e1e1e]">
+                        <div className="payment-card-hover flex flex-col justify-between items-start flex-grow w-full sm:h-[358px] relative overflow-hidden p-6 sm:p-10 rounded-[20px] sm:rounded-[40px] bg-[#f2f4f3]">
+                            <div className="payment-card-content flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4 sm:gap-6">
+                                <p className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-lg sm:text-2xl text-left text-[#1e1e1e]">
                                     (02)
                                 </p>
-                                <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-2xl sm:text-[40px] text-left text-[#1e1e1e]">
+                                <p className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-2xl sm:text-[40px] text-left text-[#1e1e1e]">
                                     Crypto Payments
                                 </p>
                             </div>
-                            <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] opacity-80 text-sm sm:text-base text-left text-[#1e1e1e] mt-4 sm:mt-0">
+                            <p className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] opacity-80 text-sm sm:text-base text-left text-[#1e1e1e] mt-4 sm:mt-auto">
                                 Send and receive payments in crypto - including BTC, ETH, and USDT - with fast, transparent, and borderless transactions.
                             </p>
                             <div className="flex-grow-0 flex-shrink-0"></div>
                         </div>
 
                         {/* Карточка 3 - APMs */}
-                        <div className="flex flex-col justify-between items-start flex-grow w-full sm:h-[358px] relative overflow-hidden p-6 sm:p-10 rounded-[20px] sm:rounded-[40px] bg-[#f2f4f3]">
-                            <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4 sm:gap-6">
-                                <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-lg sm:text-2xl text-left text-[#1e1e1e]">
+                        <div className="payment-card-hover flex flex-col justify-between items-start flex-grow w-full sm:h-[358px] relative overflow-hidden p-6 sm:p-10 rounded-[20px] sm:rounded-[40px] bg-[#f2f4f3]">
+                            <div className="payment-card-content flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4 sm:gap-6">
+                                <p className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-lg sm:text-2xl text-left text-[#1e1e1e]">
                                     (03)
                                 </p>
-                                <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-2xl sm:text-[40px] text-left text-[#1e1e1e]">
+                                <p className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] text-2xl sm:text-[40px] text-left text-[#1e1e1e]">
                                     APMs
                                 </p>
                             </div>
-                            <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] opacity-80 text-sm sm:text-base text-left text-[#1e1e1e] mt-4 sm:mt-0">
+                            <p className="payment-card-content self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[366.67px] opacity-80 text-sm sm:text-base text-left text-[#1e1e1e] mt-4 sm:mt-auto">
                                 Connect your PayPal, Apple Pay, or Google Pay accounts for one-tap, hassle-free checkouts on both desktop and mobile devices.
                             </p>
                             <div className="flex-grow-0 flex-shrink-0"></div>

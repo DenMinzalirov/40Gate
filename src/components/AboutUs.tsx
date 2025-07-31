@@ -17,7 +17,7 @@ const AboutUs = () => {
         // Функция для создания анимации счетчика
         const createCounterAnimation = (element: HTMLElement, targetValue: number, suffix: string = '+', delay: number = 0) => {
             const startValue = 0
-            const duration = 4
+            const duration = 2
             
             // Создаем объект для хранения текущего значения
             const obj = { value: startValue }
@@ -78,7 +78,7 @@ const AboutUs = () => {
                             </div>
                             <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-3.5">
                                 <p className="flex-grow-0 flex-shrink-0 w-full sm:w-[905.6px] text-[55px] text-left text-[#1e1e1e] font-tinos">
-                                    40Gate — sounds like "Fortune" for a reason. Over 40 (actually close to 100) providers onboard.
+                                    40Gate — sounds like &ldquo;Fortune&rdquo; for a reason. Over 40 (actually close to 100) providers onboard.
                                 </p>
                             </div>
                         </div>
