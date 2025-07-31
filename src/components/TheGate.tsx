@@ -1,9 +1,11 @@
 'use client'
 
+import Footer from "./Footer"
+
 const TheGate = () => {
     return (
         <section className="w-full pt-[120px] sm:pt-[200px]">
-            <div className="h-[260px] sm:h-[650px] flex flex-col sm:justify-center items-start self-stretch flex-grow-0 flex-shrink-0 relative overflow-hidden gap-8 p-5 sm:px-10">
+            <div className="h-[260px] sm:h-[650px] flex flex-col sm:justify-center items-start self-stretch flex-grow-0 flex-shrink-0 relative overflow-hidden gap-8 sm:p-5 sm:px-10">
                 {/* Фоновое изображение */}
                 {/* <img
                     src="/the-gate.png"
@@ -12,7 +14,7 @@ const TheGate = () => {
                 /> */}
                 {/* Фоновый контейнер с изображением - мобильная версия */}
                 <div
-                    className="w-full h-full max-w-[1440px] absolute left-1/2 transform -translate-x-1/2 overflow-hidden bg-cover bg-center bg-no-repeat sm:hidden"
+                    className="w-full z-9 h-full max-w-[1440px] absolute left-1/2 transform -translate-x-1/2 overflow-hidden bg-cover bg-center bg-no-repeat sm:hidden"
                     style={{
                         backgroundImage: 'url(/the-gate-mob.png)'
                     }}
@@ -20,7 +22,7 @@ const TheGate = () => {
 
                 {/* Фоновый контейнер с изображением - десктопная версия */}
                 <div
-                    className="w-full h-full max-w-[1440px] absolute left-1/2 transform -translate-x-1/2 overflow-hidden bg-cover bg-center bg-no-repeat hidden sm:block"
+                    className="w-full z-9 h-full max-w-[1440px] absolute left-1/2 transform -translate-x-1/2 overflow-hidden bg-cover bg-center bg-no-repeat hidden sm:block"
                     style={{
                         backgroundImage: 'url(/the-gate.png)'
                     }}
@@ -56,6 +58,7 @@ const TheGate = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </section>
     )
 }
