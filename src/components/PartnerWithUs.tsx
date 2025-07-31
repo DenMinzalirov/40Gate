@@ -151,7 +151,7 @@ const PartnerWithUs = () => {
                                     className="flex-grow-0 flex-shrink-0 sm:w-[14px] sm:h-[14px]"
                                     preserveAspectRatio="none"
                                 >
-                                    <circle cx="6.25" cy="7" r="6.25" fill="#6044FF" />
+                                    <circle cx="6.25" cy="7" r="6.25" fill="#0008D4" />
                                 </svg>
                                 <p className="flex-grow-0 flex-shrink-0 text-xl sm:text-2xl text-left text-[#1e1e1e] font-instrument-sans">
                                     Partner With Us
@@ -185,7 +185,7 @@ const PartnerWithUs = () => {
                         </p>
                     </div> */}
                     {/* Мобильная кнопка Contact Us */}
-                    <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#6044ff] sm:hidden">
+                    <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#0008D4] sm:hidden">
                         <p className="flex-grow-0 flex-shrink-0 text-base text-left text-white font-instrument-sans">Contact Us</p>
                     </div>
                 </div>

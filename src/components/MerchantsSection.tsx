@@ -21,7 +21,7 @@ const MerchantsSection = () => {
             title: "Payment Orchestration",
             description: "From crypto to local bank transfers - we support 300+ payment methods to ensure your customers always find a way to pay.",
             image: "/payment-orchestration.png",
-            bgColor: "bg-[#6044FF]",
+            bgColor: "bg-[#0008D4]",
             textColor: "text-[#F2F4F3]"
         },
         {
@@ -207,7 +207,7 @@ const MerchantsSection = () => {
                                 className="flex-grow-0 flex-shrink-0 sm:w-[14px] sm:h-[14px]"
                                 preserveAspectRatio="none"
                             >
-                                <circle cx="6.25" cy="7" r="6.25" fill="#6044FF" />
+                                <circle cx="6.25" cy="7" r="6.25" fill="#0008D4" />
                             </svg>
                             <p className="flex-grow-0 flex-shrink-0 text-xl sm:text-2xl text-left text-[#1e1e1e] font-instrument-sans">
                                 For merchants
@@ -221,7 +221,7 @@ const MerchantsSection = () => {
                         </div>
                     </div>
                     {/* Номер - только для десктопа */}
-                    <p className="hidden sm:block flex-grow-0 flex-shrink-0 text-[55px] text-left text-[#6044ff] font-tinos">
+                                                <p className="hidden sm:block flex-grow-0 flex-shrink-0 text-[55px] text-left text-[#0008D4] font-tinos">
                         (01)
                     </p>
                 </div>

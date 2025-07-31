@@ -18,18 +18,18 @@ const AboutUs = () => {
         const createCounterAnimation = (element: HTMLElement, targetValue: number, suffix: string = '+', delay: number = 0) => {
             const startValue = 0
             const duration = 2
-            
+
             // Создаем объект для хранения текущего значения
             const obj = { value: startValue }
-            
-            gsap.fromTo(obj, 
+
+            gsap.fromTo(obj,
                 { value: startValue },
                 {
                     value: targetValue,
                     duration: duration,
                     delay: delay,
                     ease: 'power2.out',
-                    onUpdate: function() {
+                    onUpdate: function () {
                         const currentValue = Math.floor(obj.value)
                         element.innerHTML = `${currentValue}${suffix}`
                     },
@@ -71,7 +71,7 @@ const AboutUs = () => {
                     <div className="flex justify-between items-end self-stretch flex-grow-0 flex-shrink-0 relative">
                         <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 w-full sm:w-[925px] gap-[30px]">
                             <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-3">
-                                <div className="w-3 h-3 rounded-full bg-[#6044ff]"></div>
+                                <div className="w-3 h-3 rounded-full bg-[#0008D4]"></div>
                                 <p className="flex-grow-0 flex-shrink-0 text-xl sm:text-2xl text-left text-[#1e1e1e]">
                                     About us
                                 </p>
@@ -83,7 +83,7 @@ const AboutUs = () => {
                             </div>
                         </div>
                         {/* Номер секции - только для десктопа */}
-                        <p className="hidden sm:block flex-grow-0 flex-shrink-0 text-[55px] text-left text-[#6044ff] font-tinos">
+                        <p className="hidden sm:block flex-grow-0 flex-shrink-0 text-[55px] text-left text-[#0008D4] font-tinos">
                             (04)
                         </p>
                     </div>
@@ -92,7 +92,7 @@ const AboutUs = () => {
                     <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-[85px]">
                         {/* Первая статистика - 1000+ */}
                         <div className="flex flex-wrap justify-between items-end w-full">
-                            <div ref={number1Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#6044ff] font-tinos leading-none flex items-center">
+                            <div ref={number1Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#0008D4] font-tinos leading-none flex items-center">
                                 1000+
                             </div>
                             <div className="h-[92px]">
@@ -109,11 +109,20 @@ const AboutUs = () => {
                         </div>
 
                         {/* Разделительная линия */}
-                        <div className="self-stretch h-[1px] bg-[#1e1e1e] border-dashed border-t border-[#1e1e1e] w-full"></div>
+                        <div className="w-full">
+                            <svg width="100%" height="2">
+                                <defs>
+                                    <pattern id="dash" patternUnits="userSpaceOnUse" width="20" height="2">
+                                        <line x1="0" y1="1" x2="10" y2="1" stroke="#000" stroke-width="2" />
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="2" fill="url(#dash)" />
+                            </svg>
+                        </div>
 
                         {/* Вторая статистика - 300+ */}
                         <div className="flex flex-wrap justify-between items-end w-full">
-                            <div ref={number2Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#6044ff] font-tinos leading-none flex items-center">
+                            <div ref={number2Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#0008D4] font-tinos leading-none flex items-center">
                                 300+
                             </div>
                             <div className="h-[92px]">
@@ -130,11 +139,20 @@ const AboutUs = () => {
                         </div>
 
                         {/* Разделительная линия */}
-                        <div className="self-stretch h-[1px] bg-[#1e1e1e] border-dashed border-t border-[#1e1e1e] w-full"></div>
+                        <div className="w-full">
+                            <svg width="100%" height="2">
+                                <defs>
+                                    <pattern id="dash" patternUnits="userSpaceOnUse" width="20" height="2">
+                                        <line x1="0" y1="1" x2="10" y2="1" stroke="#000" stroke-width="2" />
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="2" fill="url(#dash)" />
+                            </svg>
+                        </div>
 
                         {/* Третья статистика - 30+ */}
                         <div className="flex flex-wrap justify-between items-end w-full">
-                            <div ref={number3Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#6044ff] font-tinos leading-none flex items-center">
+                            <div ref={number3Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#0008D4] font-tinos leading-none flex items-center">
                                 30+
                             </div>
                             <div className="h-[92px]">
