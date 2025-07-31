@@ -116,3 +116,12 @@ a {
 .payment-card-hover:hover .payment-card-content {
   color: white;
 }
+
+/* Анимация навигации */
+.nav-animation {
+  transition: transform 0.3s ease-out;
+}
+
+.nav-hidden {
+  transform: translateY(-100%);
+}
