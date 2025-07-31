@@ -1,8 +1,16 @@
 const Hero = () => {
+  const heroImages = [
+    { src: '/hero-1.png', left: '-15%', top: '-350px' },
+    { src: '/hero-2.png', left: '17%', top: '-180px' },
+    { src: '/hero-3.png', left: '17%', top: '650px' },
+    { src: '/hero-4.png', left: '70%', top: '-350px' },
+    { src: '/hero-5.png', left: '75%', top: '600px' }
+  ]
+
   return (
-    <section className="w-full h-[844px] sm:h-[840px] relative flex justify-center">
+    <section className="w-full h-[844px] sm:h-[840px] relative flex justify-center overflow-hidden">
       {/* Фоновый контейнер с изображением - мобильная версия */}
-      <div 
+      <div
         className="w-full h-full max-w-[1440px] absolute left-1/2 transform -translate-x-1/2 overflow-hidden bg-cover bg-center bg-no-repeat sm:hidden"
         style={{
           backgroundImage: 'url(/hero_mob.png)'
@@ -10,12 +18,38 @@ const Hero = () => {
       />
 
       {/* Фоновый контейнер с изображением - десктопная версия */}
-      <div 
-        className="w-full h-full max-w-[1440px] absolute left-1/2 transform -translate-x-1/2 overflow-hidden bg-cover bg-center bg-no-repeat hidden sm:block"
+      <div
+        className="w-full h-full absolute inset-0 hidden sm:block"
+        // style={{
+        //   backgroundImage: 'url(/hero.png)'
+        // }}
         style={{
-          backgroundImage: 'url(/hero.png)'
+          background: 'linear-gradient(135deg, #ACCCDC 0%, #C7D6DE 100%)'
         }}
-      />
+      >
+        {heroImages.map((image, index) => (
+          <img
+            key={index}
+            src={image.src}
+            alt={`Hero image ${index + 1}`}
+            className="absolute w-auto h-auto"
+            style={{
+              left: image.left,
+              top: image.top
+            }}
+          />
+        ))}
+        <img
+            src={'/hero-man.png'}
+            alt={`Hero image`}
+            className="absolute w-auto h-auto"
+            style={{
+              left: '30%',
+              top: '100px',
+              width: '960px',
+            }}
+          />
+      </div>
 
       {/* Контент с ограничением максимальной ширины */}
       <div className="w-full h-full max-w-[1440px] mx-auto relative">
