@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Instrument_Sans, Tinos } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
+import { ContactModalProvider } from '@/components/ContactModalProvider'
 
 // Настройка шрифта Instrument Sans
 const instrumentSans = Instrument_Sans({
@@ -33,8 +34,10 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${instrumentSans.variable} ${tinos.variable}`}>
       <body>
-        <Navigation />
-        {children}
+        <ContactModalProvider>
+          <Navigation />
+          {children}
+        </ContactModalProvider>
       </body>
     </html>
   )

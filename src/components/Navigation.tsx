@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { useContactModalContext } from './ContactModalProvider'
 
 const Navigation = () => {
   const [activeTab, setActiveTab] = useState('merchants')
@@ -12,6 +13,7 @@ const Navigation = () => {
   const scrollThreshold = 40
   const hoverThreshold = 80
   const scrollUpThreshold = 80
+  const { openModal } = useContactModalContext()
 
   useEffect(() => {
     let lastScrollY = 0
@@ -150,7 +152,10 @@ const Navigation = () => {
 
             {/* Кнопка Contact Us - одна для всех устройств */}
             <div className="flex items-center">
-              <button className="flex justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#1e1e1e] text-white text-base hover:bg-gray-800 transition-colors">
+              <button 
+                onClick={openModal}
+                className="flex justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#1e1e1e] text-white text-base hover:bg-gray-800 transition-colors"
+              >
                 Contact Us
               </button>
             </div>

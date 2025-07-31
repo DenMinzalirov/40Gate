@@ -113,7 +113,7 @@ const AboutUs = () => {
                             <svg width="100%" height="2">
                                 <defs>
                                     <pattern id="dash" patternUnits="userSpaceOnUse" width="20" height="2">
-                                        <line x1="0" y1="1" x2="10" y2="1" stroke="#000" stroke-width="2" />
+                                        <line x1="0" y1="1" x2="10" y2="1" stroke="#000" strokeWidth="2" />
                                     </pattern>
                                 </defs>
                                 <rect width="100%" height="2" fill="url(#dash)" />
@@ -143,7 +143,7 @@ const AboutUs = () => {
                             <svg width="100%" height="2">
                                 <defs>
                                     <pattern id="dash" patternUnits="userSpaceOnUse" width="20" height="2">
-                                        <line x1="0" y1="1" x2="10" y2="1" stroke="#000" stroke-width="2" />
+                                        <line x1="0" y1="1" x2="10" y2="1" stroke="#000" strokeWidth="2" />
                                     </pattern>
                                 </defs>
                                 <rect width="100%" height="2" fill="url(#dash)" />

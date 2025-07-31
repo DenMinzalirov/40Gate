@@ -1,8 +1,11 @@
 'use client'
 
 import Footer from "./Footer"
+import { useContactModalContext } from "./ContactModalProvider"
 
 const TheGate = () => {
+    const { openModal } = useContactModalContext()
+
     return (
         <section className="w-full pt-[120px] sm:pt-[200px]">
             <div className="h-[260px] sm:h-[650px] flex flex-col sm:justify-center items-start self-stretch flex-grow-0 flex-shrink-0 relative overflow-hidden gap-8 sm:p-5 sm:px-10">
@@ -49,6 +52,7 @@ const TheGate = () => {
                             onClick={() => {
                                 // Здесь можно добавить логику для открытия формы контакта или перехода на страницу контактов
                                 console.log('Contact Us clicked')
+                                openModal()
                             }}
                         >
                             <p className="flex-grow-0 flex-shrink-0 text-base text-left text-white font-instrument-sans">
