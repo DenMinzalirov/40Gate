@@ -1,6 +1,6 @@
 const CustomPaymentSolutions = () => {
     return (
-        <section className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
+        <section id="custom-payment-solutions" className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
             <div className="w-full max-w-[1440px] mx-auto">
                 <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-[100px]">
                     {/* Заголовок секции */}

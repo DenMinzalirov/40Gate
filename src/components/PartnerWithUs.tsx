@@ -136,7 +136,7 @@ const PartnerWithUs = () => {
                 Contact Us
             </div>
             
-            <section ref={sectionRef} className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
+            <section id="partner-with-us" ref={sectionRef} className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
             <div className="w-full max-w-[1440px] mx-auto">
                 <div className="flex flex-col justify-center items-start sm:items-end self-stretch flex-grow-0 flex-shrink-0 relative gap-8 sm:gap-[65px] py-6 sm:py-[50px]">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end self-stretch flex-grow-0 flex-shrink-0 gap-6 sm:gap-0">

@@ -187,7 +187,7 @@ const MerchantsSection = () => {
     }, [])
 
     return (
-        <section className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
+        <section id="merchants-section" className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
             <div className="w-full max-w-[1440px] mx-auto">
                 {/* Текстовый блок для заполнения пустого пространства */}
                 <div

@@ -8,6 +8,25 @@ const Navigation = () => {
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab)
+    
+    // Навигация к соответствующим секциям
+    const sectionMap: { [key: string]: string } = {
+      merchants: 'merchants-section',
+      partners: 'partner-with-us',
+      payments: 'custom-payment-solutions',
+      about: 'about-us'
+    }
+    
+    const targetId = sectionMap[tab]
+    if (targetId) {
+      const element = document.getElementById(targetId)
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    }
   }
 
   const menuItems = [
@@ -18,7 +37,7 @@ const Navigation = () => {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+    <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="w-full px-5 sm:px-10">
         <div className="max-w-[1440px] mx-auto">
           <div className="flex items-center justify-between h-16 sm:h-16 pt-5 sm:pt-0">
