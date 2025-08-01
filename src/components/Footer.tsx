@@ -1,6 +1,12 @@
-const Footer = () => {
+import Link from 'next/link'
+
+interface FooterProps {
+    sticky?: boolean
+}
+
+const Footer = ({ sticky = true }: FooterProps) => {
     return (
-        <footer className="w-full sticky bottom-0">
+        <footer className={`w-full ${sticky ? 'sticky bottom-0' : ''}`}>
             {/* Мобильная версия */}
             <div className="w-full bg-[#1e1e1e] px-5 pt-10 pb-5 sm:hidden">
                 <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-[50px]">
@@ -27,9 +33,9 @@ const Footer = () => {
                         {/* Ссылки */}
                         <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-[60px]">
                             <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-5">
-                                <p className="flex-grow-0 flex-shrink-0 text-base text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
+                                <Link href="/privacy-policy" className="flex-grow-0 flex-shrink-0 text-base text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                     Privacy Policy
-                                </p>
+                                </Link>
                                 <p className="flex-grow-0 flex-shrink-0 text-base text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                     Cookie Policy
                                 </p>
@@ -83,9 +89,9 @@ const Footer = () => {
                             {/* Ссылки */}
                             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-[60px]">
                                 <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-5">
-                                    <p className="flex-grow-0 flex-shrink-0 text-xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
+                                    <Link href="/privacy-policy" className="flex-grow-0 flex-shrink-0 text-xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                         Privacy Policy
-                                    </p>
+                                    </Link>
                                     <p className="flex-grow-0 flex-shrink-0 text-xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                         Cookie Policy
                                     </p>
