@@ -1,7 +1,7 @@
 'use client'
 
 import { Rule, SubRule } from '@/types/rules'
-import { cookiePolicyRules } from '@/data/cookie-policy-rules'
+import { termsOfServiceRules } from '@/data/terms-of-service-rules'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 
@@ -59,17 +59,17 @@ const RulesList = ({ rules }: { rules: Rule[] }) => {
     )
 }
 
-const CookiePolicyPage = () => {
+const TermsOfServicePage = () => {
 
     return (
         <div className="min-h-screen pt-10 bg-[#f2f4f3]">
-            <div className="w-full pt-10 px-5 pb-5">
+            <div className="w-full pt-10 px-5 pt-10 pb-5">
                 <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-[50px]">
                     <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-[50px]">
                         {/* Заголовок */}
                         <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-5">
                             <h1 className="self-stretch flex-grow-0 flex-shrink-0 text-[40px] text-left text-[#1e1e1e] font-tinos leading-[48px]">
-                                Cookie Policy
+                                Terms of Service
                             </h1>
                         </div>
 
@@ -86,7 +86,7 @@ const CookiePolicyPage = () => {
                         </div>
 
                         {/* Основной контент - используем компонент RulesList */}
-                        <RulesList rules={cookiePolicyRules} />
+                        <RulesList rules={termsOfServiceRules} />
                     </div>
                 </div>
             </div>
@@ -95,4 +95,4 @@ const CookiePolicyPage = () => {
     )
 }
 
-export default CookiePolicyPage 
+export default TermsOfServicePage 

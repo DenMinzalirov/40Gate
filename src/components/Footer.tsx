@@ -39,9 +39,9 @@ const Footer = ({ sticky = true }: FooterProps) => {
                                 <Link href="/cookie-policy" className="flex-grow-0 flex-shrink-0 text-base text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                     Cookie Policy
                                 </Link>
-                                <p className="flex-grow-0 flex-shrink-0 text-base text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
+                                <Link href="/terms-of-service" className="flex-grow-0 flex-shrink-0 text-base text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                     Terms of Service
-                                </p>
+                                </Link>
                             </div>
                         </div>
 
@@ -95,9 +95,9 @@ const Footer = ({ sticky = true }: FooterProps) => {
                                     <Link href="/cookie-policy" className="flex-grow-0 flex-shrink-0 text-xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                         Cookie Policy
                                     </Link>
-                                    <p className="flex-grow-0 flex-shrink-0 text-xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
+                                    <Link href="/terms-of-service" className="flex-grow-0 flex-shrink-0 text-xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                         Terms of Service
-                                    </p>
+                                    </Link>
                                 </div>
                             </div>
 
