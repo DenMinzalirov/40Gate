@@ -2,9 +2,12 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { useContactModalContext } from './ContactModalProvider'
+import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
 
 const Navigation = () => {
+  const router = useRouter()
+  const pathname = usePathname()
   const [activeTab, setActiveTab] = useState('merchants')
   const [isVisible, setIsVisible] = useState(true)
   const [isHovering, setIsHovering] = useState(false)
@@ -13,7 +16,7 @@ const Navigation = () => {
   const scrollThreshold = 40
   const hoverThreshold = 80
   const scrollUpThreshold = 80
-  const { openModal } = useContactModalContext()
+
 
   useEffect(() => {
     let lastScrollY = 0
@@ -86,7 +89,22 @@ const Navigation = () => {
     }
     
     const targetId = sectionMap[tab]
-    if (targetId) {
+    
+    // Если мы не на главной странице, сначала переходим в корень
+    if (pathname !== '/') {
+      router.push('/')
+      // Ждем немного и затем скроллим к секции
+      setTimeout(() => {
+        const element = document.getElementById(targetId)
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          })
+        }
+      }, 100)
+    } else {
+      // Если уже на главной странице, просто скроллим к секции
       const element = document.getElementById(targetId)
       if (element) {
         element.scrollIntoView({ 
@@ -116,8 +134,8 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-16 sm:h-16 pt-5 sm:pt-0">
             {/* Логотип */}
             <div className="flex items-center">
-              <a 
-                href="#home" 
+              <Link 
+                href="/"
                 className="flex items-center hover:opacity-80 transition-opacity"
               >
                 <Image
@@ -128,7 +146,7 @@ const Navigation = () => {
                   className="h-8 w-auto"
                   priority
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Набор кнопок - скрыт на мобильных */}
@@ -152,12 +170,12 @@ const Navigation = () => {
 
             {/* Кнопка Contact Us - одна для всех устройств */}
             <div className="flex items-center">
-              <button 
-                onClick={openModal}
+              <Link 
+                href="/contact"
                 className="flex justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#1e1e1e] text-white text-base hover:bg-gray-800 transition-colors"
               >
                 Contact Us
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,10 +1,9 @@
 'use client'
 
 import Footer from "./Footer"
-import { useContactModalContext } from "./ContactModalProvider"
+import Link from "next/link"
 
 const TheGate = () => {
-    const { openModal } = useContactModalContext()
 
     return (
         <section className="w-full pt-[120px] sm:pt-[200px]">
@@ -48,18 +47,14 @@ const TheGate = () => {
 
                     {/* Кнопка Contact Us */}
                     <div className="flex-grow-0 flex-shrink-0 w-auto sm:w-[162px] h-[50px] mt-8">
-                        <button
+                        <Link
+                            href="/contact"
                             className="flex justify-center items-center h-[50px] w-auto sm:w-[162px] gap-2.5 px-6 sm:px-10 py-2.5 rounded-[100px] bg-[#1e1e1e] hover:bg-[#333] transition-colors duration-200 cursor-pointer"
-                            onClick={() => {
-                                // Здесь можно добавить логику для открытия формы контакта или перехода на страницу контактов
-                                console.log('Contact Us clicked')
-                                openModal()
-                            }}
                         >
                             <p className="flex-grow-0 flex-shrink-0 text-base text-left text-white font-instrument-sans">
                                 Contact Us
                             </p>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

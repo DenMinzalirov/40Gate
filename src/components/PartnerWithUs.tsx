@@ -4,7 +4,8 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SplitType from 'split-type'
-import { useContactModalContext } from './ContactModalProvider'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 // Регистрируем плагин ScrollTrigger
 if (typeof window !== 'undefined') {
@@ -12,11 +13,10 @@ if (typeof window !== 'undefined') {
 }
 
 const PartnerWithUs = () => {
+    const router = useRouter()
     const textRef = useRef<HTMLParagraphElement>(null)
     const sectionRef = useRef<HTMLElement>(null)
-    const cursorRef = useRef<HTMLDivElement>(null)
-
-    const { openModal } = useContactModalContext()
+    const cursorRef = useRef<HTMLAnchorElement>(null)
 
     useEffect(() => {
         const textElement = textRef.current
@@ -141,12 +141,22 @@ const PartnerWithUs = () => {
     return (
         <>
             {/* Кастомный курсор */}
-            <div onClick={openModal} ref={cursorRef} className="custom-cursor">
+            <Link 
+                href="/contact" 
+                ref={cursorRef} 
+                className="custom-cursor"
+                onClick={(e) => e.stopPropagation()}
+            >
                 Contact Us
-            </div>
+            </Link>
 
-            <section id="partner-with-us" ref={sectionRef} className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
-                <div onClick={openModal} className="w-full max-w-[1440px] mx-auto">
+            <section 
+                id="partner-with-us" 
+                ref={sectionRef} 
+                className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10 cursor-pointer"
+                onClick={() => router.push('/contact')}
+            >
+                <div className="w-full max-w-[1440px] mx-auto">
                     <div className="flex flex-col justify-center items-start sm:items-end self-stretch flex-grow-0 flex-shrink-0 relative gap-8 sm:gap-[65px] py-6 sm:py-[50px]">
                         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end self-stretch flex-grow-0 flex-shrink-0 gap-6 sm:gap-0">
                             <div className="flex flex-col justify-start items-start flex-grow gap-6 sm:gap-[30px]">
@@ -194,9 +204,13 @@ const PartnerWithUs = () => {
                         </p>
                     </div> */}
                         {/* Мобильная кнопка Contact Us */}
-                        <div onClick={openModal} className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#0008D4] sm:hidden">
+                        <Link 
+                            href="/contact" 
+                            className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#0008D4] sm:hidden"
+                            onClick={(e) => e.stopPropagation()}
+                        >
                             <p className="flex-grow-0 flex-shrink-0 text-base text-left text-white font-instrument-sans">Contact Us</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>
