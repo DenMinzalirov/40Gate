@@ -53,7 +53,7 @@ const Footer = () => {
             </div>
 
             {/* Десктопная версия */}
-            <div className="w-full bg-[#1e1e1e] max-w-[1440px] mx-auto px-10 py-[30px] hidden sm:block">
+            <div className="w-full bg-[#1e1e1e] mx-auto px-10 py-[30px] hidden sm:block">
                 <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-[50px]">
                     <div className="flex justify-between items-start self-stretch flex-grow-0 flex-shrink-0">
                         {/* Левая колонка - логотип и копирайт */}

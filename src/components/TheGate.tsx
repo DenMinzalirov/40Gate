@@ -25,14 +25,15 @@ const TheGate = () => {
 
                 {/* Фоновый контейнер с изображением - десктопная версия */}
                 <div
-                    className="w-full z-9 h-full max-w-[1440px] absolute left-1/2 transform -translate-x-1/2 overflow-hidden bg-cover bg-center bg-no-repeat hidden sm:block"
+                    className="w-full z-9 h-full absolute left-1/2 transform -translate-x-1/2 overflow-hidden bg-cover bg-top bg-no-repeat hidden sm:block"
                     style={{
-                        backgroundImage: 'url(/the-gate.png)'
+                        backgroundImage: 'url(/the-gate.png)',
+                        backgroundSize: 'cover',
                     }}
                 />
 
                 {/* Контент поверх изображения */}
-                <div className="relative z-10 flex flex-col sm:justify-center items-start h-full w-full max-w-[1440px] mx-auto pl-5 sm:pl-10 pt-10 sm:pt-0">
+                <div className="relative z-10 flex flex-col sm:justify-center items-start h-full w-full mx-auto pl-5 sm:pl-10 pt-10 sm:pt-0">
                     <div className="flex-grow-0 flex-shrink-0 w-full sm:w-[536px] text-[40px] sm:text-[65px] text-left text-[#1e1e1e] font-tinos leading-none flex flex-col gap-[3px]">
                         <div className="flex-grow-0 flex-shrink-0 w-full sm:w-[536px] text-[24px] sm:text-[65px] text-left text-[#1e1e1e] font-tinos">
                             40 - The Gate

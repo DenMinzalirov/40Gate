@@ -112,7 +112,7 @@ const Navigation = () => {
       }`}
     >
       <div className="w-full px-5 sm:px-10">
-        <div className="max-w-[1440px] mx-auto">
+        <div className="mx-auto">
           <div className="flex items-center justify-between h-16 sm:h-16 pt-5 sm:pt-0">
             {/* Логотип */}
             <div className="flex items-center">
@@ -138,7 +138,7 @@ const Navigation = () => {
                   <button
                     key={item.id}
                     onClick={() => handleTabChange(item.id)}
-                    className={`flex justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] text-base text-left transition-all duration-200 ${
+                    className={`flex cursor-pointer justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] text-base text-left transition-all duration-200 ${
                       activeTab === item.id
                         ? 'bg-[#f2f4f3] text-[#1e1e1e]'
                         : 'text-[#1e1e1e] hover:bg-gray-50'

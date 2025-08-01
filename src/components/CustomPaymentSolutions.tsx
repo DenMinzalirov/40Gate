@@ -23,7 +23,7 @@ const CustomPaymentSolutions = () => {
                                 </p>
                             </div>
                             <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-3.5">
-                                <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[925px] text-[55px] text-left text-[#1e1e1e] font-tinos leading-tight">
+                                <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:w-[925px] text-3xl sm:text-[55px] text-left text-[#1e1e1e] font-tinos leading-tight">
                                     We offer a full suite of global payment options - cards, OB, APM&apos;s, crypto - all designed to match your specific needs.
                                 </p>
                             </div>

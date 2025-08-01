@@ -77,25 +77,25 @@ const AboutUs = () => {
                                 </p>
                             </div>
                             <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-3.5">
-                                <p className="flex-grow-0 flex-shrink-0 w-full sm:w-[905.6px] text-[55px] text-left text-[#1e1e1e] font-tinos">
+                                <p className="flex-grow-0 flex-shrink-0 w-full sm:w-[905.6px] text-3xl sm:text-[55px] text-left text-[#1e1e1e] font-tinos">
                                     40Gate — sounds like &ldquo;Fortune&rdquo; for a reason. Over 40 (actually close to 100) providers onboard.
                                 </p>
                             </div>
                         </div>
                         {/* Номер секции - только для десктопа */}
-                        <p className="hidden sm:block flex-grow-0 flex-shrink-0 text-[55px] text-left text-[#0008D4] font-tinos">
+                        <p className="hidden sm:block flex-grow-0 flex-shrink-0 text-3xl sm:text-[55px] text-left text-[#0008D4] font-tinos">
                             (04)
                         </p>
                     </div>
 
                     {/* Статистика */}
-                    <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-[85px]">
+                    <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-[30px] sm:gap-[85px]">
                         {/* Первая статистика - 1000+ */}
                         <div className="flex flex-wrap justify-between items-end w-full">
                             <div ref={number1Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#0008D4] font-tinos leading-none flex items-center">
                                 1000+
                             </div>
-                            <div className="h-[92px]">
+                            <div className="h-[92px] min-w-[335px] hidden sm:block">
                                 <div className="flex flex-row justify-start items-center">
                                     <div className="w-[100.1px] h-[1px] bg-[#1e1e1e] mr-[25px] min-w-[100px]"></div>
                                     <p className="text-[40px] text-[#1e1e1e] font-tinos">
@@ -106,6 +106,7 @@ const AboutUs = () => {
                                     already with us
                                 </p>
                             </div>
+                            <div className="min-w-[335px] block sm:hidden text-xl">Merchants already with us</div>
                         </div>
 
                         {/* Разделительная линия */}
@@ -125,7 +126,7 @@ const AboutUs = () => {
                             <div ref={number2Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#0008D4] font-tinos leading-none flex items-center">
                                 300+
                             </div>
-                            <div className="h-[92px]">
+                            <div className="h-[92px] min-w-[335px] hidden sm:block">
                                 <div className="flex flex-row justify-start items-center">
                                     <div className="w-[100.1px] h-[1px] bg-[#1e1e1e] mr-[25px] min-w-[100px]"></div>
                                     <p className="text-[40px] text-[#1e1e1e] font-tinos">
@@ -136,6 +137,7 @@ const AboutUs = () => {
                                     and cryptocurrencies
                                 </p>
                             </div>
+                            <div className="min-w-[335px] block sm:hidden text-xl">Any fiat & crypto</div>
                         </div>
 
                         {/* Разделительная линия */}
@@ -155,7 +157,7 @@ const AboutUs = () => {
                             <div ref={number3Ref} className="h-[180px] text-[120px] sm:text-[261.7px] text-left text-[#0008D4] font-tinos leading-none flex items-center">
                                 30+
                             </div>
-                            <div className="h-[92px]">
+                            <div className="h-[92px] min-w-[335px] hidden sm:block">
                                 <div className="flex flex-row justify-start items-center">
                                     <div className="w-[100.1px] h-[1px] bg-[#1e1e1e] mr-[25px] min-w-[100px]"></div>
                                     <p className="text-[40px] text-[#1e1e1e] font-tinos">
@@ -166,6 +168,7 @@ const AboutUs = () => {
                                     payment methods
                                 </p>
                             </div>
+                            <div className="min-w-[335px] block sm:hidden text-xl">Available payment methods</div>
                         </div>
                     </div>
                 </div>
