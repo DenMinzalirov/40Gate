@@ -1,8 +1,19 @@
 'use client'
 
+import Link from 'next/link'
 import { Rule, SubRule } from '@/types/rules'
 import { privacyPolicyRules } from '@/data/privacy-policy-rules'
 import Footer from '@/components/Footer'
+
+export const metadata = {
+  title: 'Privacy Policy - 40Gate Payment Gateway Platform',
+  description: '40Gate Privacy Policy. Learn how we collect, use, and protect your personal information in accordance with data protection laws.',
+  keywords: ['privacy policy', '40Gate privacy', 'data protection', 'personal information', 'GDPR compliance'],
+  openGraph: {
+    title: 'Privacy Policy - 40Gate Payment Gateway Platform',
+    description: '40Gate Privacy Policy. Learn how we collect, use, and protect your personal information in accordance with data protection laws.',
+  }
+}
 
 // Компонент для отображения одного правила
 const RuleItem = ({ rule }: { rule: Rule }) => {

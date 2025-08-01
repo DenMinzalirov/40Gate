@@ -5,6 +5,16 @@ import { cookiePolicyRules } from '@/data/cookie-policy-rules'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 
+export const metadata = {
+  title: 'Cookie Policy - 40Gate Payment Gateway Platform',
+  description: '40Gate Cookie Policy. Learn how we use cookies and similar technologies to improve your experience on our payment gateway platform.',
+  keywords: ['cookie policy', '40Gate cookies', 'cookie usage', 'tracking technologies', 'cookie consent'],
+  openGraph: {
+    title: 'Cookie Policy - 40Gate Payment Gateway Platform',
+    description: '40Gate Cookie Policy. Learn how we use cookies and similar technologies to improve your experience on our payment gateway platform.',
+  }
+}
+
 // Компонент для отображения одного правила
 const RuleItem = ({ rule }: { rule: Rule }) => {
     return (
