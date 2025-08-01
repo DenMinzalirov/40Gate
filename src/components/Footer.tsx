@@ -36,9 +36,9 @@ const Footer = ({ sticky = true }: FooterProps) => {
                                 <Link href="/privacy-policy" className="flex-grow-0 flex-shrink-0 text-base text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                     Privacy Policy
                                 </Link>
-                                <p className="flex-grow-0 flex-shrink-0 text-base text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
+                                <Link href="/cookie-policy" className="flex-grow-0 flex-shrink-0 text-base text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                     Cookie Policy
-                                </p>
+                                </Link>
                                 <p className="flex-grow-0 flex-shrink-0 text-base text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                     Terms of Service
                                 </p>
@@ -92,9 +92,9 @@ const Footer = ({ sticky = true }: FooterProps) => {
                                     <Link href="/privacy-policy" className="flex-grow-0 flex-shrink-0 text-xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                         Privacy Policy
                                     </Link>
-                                    <p className="flex-grow-0 flex-shrink-0 text-xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
+                                    <Link href="/cookie-policy" className="flex-grow-0 flex-shrink-0 text-xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                         Cookie Policy
-                                    </p>
+                                    </Link>
                                     <p className="flex-grow-0 flex-shrink-0 text-xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
                                         Terms of Service
                                     </p>
