@@ -55,7 +55,7 @@ export default function ContactPage() {
                     background: 'linear-gradient(135deg, #ACCCDC 0%, #C7D6DE 100%)'
                 }}
             >
-                <div className="max-w-[335px] sm:max-w-[550px] h-[400px] sm:p-10 rounded-[40px] bg-white shadow-[0px_0px_42.5px_0_rgba(153,153,153,0.25)]">
+                <div className="max-w-[335px] xl:max-w-[550px] h-[400px] xl:p-10 rounded-[40px] bg-white shadow-[0px_0px_42.5px_0_rgba(153,153,153,0.25)]">
                     <div className="flex flex-col justify-center items-center h-full gap-[30px]">
                         {/* Иконка успеха */}
                         <Image src="/thank-you.png" alt="Thank You" width={100} height={100} />
@@ -63,17 +63,17 @@ export default function ContactPage() {
 
                         {/* Контент */}
                         <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-3">
-                            <h2 className="self-stretch flex-grow-0 flex-shrink-0 w-[470px] text-[36px] sm:text-[50px] text-center text-[#1e1e1e] font-tinos leading-tight">
+                            <h2 className="self-stretch flex-grow-0 flex-shrink-0 w-[470px] text-[36px] xl:text-[50px] text-center text-[#1e1e1e] font-tinos leading-tight">
                                 Thank you!
                             </h2>
 
                             <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-9">
                                 <p className="self-stretch flex-grow-0 flex-shrink-0 w-[470px] text-2xl text-center text-[#1e1e1e] font-instrument-sans">
-                                    <span className="font-tinos self-stretch flex-grow-0 flex-shrink-0 w-[470px] text-[20px] sm:text-2xl text-center text-[#1e1e1e]">
+                                    <span className="font-tinos self-stretch flex-grow-0 flex-shrink-0 w-[470px] text-[20px] xl:text-2xl text-center text-[#1e1e1e]">
                                         We&apos;ve received your message
                                     </span>
                                     <br />
-                                    <span className="font-tinos self-stretch flex-grow-0 flex-shrink-0 w-[470px] text-[20px] sm:text-2xl text-center text-[#1e1e1e]">
+                                    <span className="font-tinos self-stretch flex-grow-0 flex-shrink-0 w-[470px] text-[20px] xl:text-2xl text-center text-[#1e1e1e]">
                                         and will be in touch soon.
                                     </span>
                                 </p>
@@ -99,16 +99,16 @@ export default function ContactPage() {
                 background: 'linear-gradient(135deg, #ACCCDC 0%, #C7D6DE 100%)'
             }}
         >
-            <div className="sm:min-w-[550px] min-w-[280px] sm:p-10 p-[20px] sm:rounded-[40px] rounded-[20px] bg-white shadow-[0px_0px_42.5px_0_rgba(153,153,153,0.25)]">
+            <div className="xl:min-w-[550px] sm:min-w-[335px] min-w-[280px] xl:p-10 p-[20px] xl:rounded-[40px] rounded-[20px] bg-white shadow-[0px_0px_42.5px_0_rgba(153,153,153,0.25)]">
                 <form onSubmit={handleSubmit} className="flex flex-col gap-12 ">
                     {/* Заголовок */}
-                    <h1 className="sm:text-[50px] text-[36px] text-left text-[#1e1e1e] font-tinos leading-tight">
+                    <h1 className="xl:text-[50px] text-[36px] text-left text-[#1e1e1e] font-tinos leading-tight">
                         Let&apos;s get started
                     </h1>
 
                     {/* Основная информация */}
                     <div className="flex flex-col gap-9">
-                        <h2 className="sm:text-3xl text-[24px] text-left text-[#1e1e1e] font-tinos">
+                        <h2 className="xl:text-3xl text-[24px] text-left text-[#1e1e1e] font-tinos">
                             Main information
                         </h2>
 
@@ -207,7 +207,7 @@ export default function ContactPage() {
 
                     {/* Интересы */}
                     <div className="flex flex-col gap-9">
-                        <h2 className="sm:text-3xl text-[24px] text-left text-[#1e1e1e] font-tinos">
+                        <h2 className="xl:text-3xl text-[24px] text-left text-[#1e1e1e] font-tinos">
                             Interested in
                         </h2>
 
