@@ -16,22 +16,22 @@ const MerchantsSectionCard = ({
     textColor?: string
 }) => {
     return (
-        <div className={`flex flex-col sm:flex-row sm:justify-between sm:items-center self-stretch flex-grow-0 flex-shrink-0 h-[525px] sm:h-[400px] relative p-5 sm:p-10 rounded-[40px] ${bgColor}`}>
-            <div className="flex flex-col h-full justify-between sm:justify-between sm:h-80 relative">
+        <div className={`flex flex-col xl:flex-row xl:justify-between xl:items-center self-stretch flex-grow-0 flex-shrink-0 h-[525px] xl:h-[400px] relative p-5 xl:p-10 rounded-[40px] ${bgColor}`}>
+            <div className="flex flex-col h-full justify-between xl:justify-between xl:h-80 relative">
                 <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-3">
-                    <p className={`self-stretch flex-grow-0 flex-shrink-0 w-full text-base sm:text-2xl text-left ${textColor} font-instrument-sans`}>
+                    <p className={`self-stretch flex-grow-0 flex-shrink-0 w-full text-base xl:text-2xl text-left ${textColor} font-instrument-sans`}>
                         {number}
                     </p>
-                    <p className={`self-stretch flex-grow-0 flex-shrink-0 w-full text-3xl sm:text-[50px] text-left ${textColor} font-tinos leading-tight`}>
+                    <p className={`self-stretch flex-grow-0 flex-shrink-0 w-full text-3xl xl:text-[50px] text-left ${textColor} font-tinos leading-tight`}>
                         {title}
                     </p>
                 </div>
-                <div className="block sm:hidden sm:pt-[59px] sm:pb-[59px]">{image}</div>
-                <p className={`flex-grow-0 flex-shrink-0 w-full sm:max-w-[501px] opacity-80 text-base sm:text-2xl text-left ${textColor} font-instrument-sans`}>
+                <div className="block xl:hidden xl:pt-[59px] xl:pb-[59px]">{image}</div>
+                <p className={`flex-grow-0 flex-shrink-0 w-full xl:max-w-[501px] opacity-80 text-base xl:text-2xl text-left ${textColor} font-instrument-sans`}>
                     {description}
                 </p>
             </div>
-            <div className="sm:block hidden">{image}</div>
+            <div className="xl:block hidden">{image}</div>
 
         </div>
     )
