@@ -129,9 +129,9 @@ const Navigation = () => {
         isVisible ? '' : 'nav-hidden'
       }`}
     >
-      <div className="w-full px-5 sm:px-10">
+      <div className="w-full px-5 xl:px-10">
         <div className="mx-auto">
-          <div className="flex items-center justify-between h-16 sm:h-16 pt-5 sm:pt-0">
+          <div className="flex items-center justify-between h-16 xl:h-16 pt-5 xl:pt-0">
             {/* Логотип */}
             <div className="flex items-center">
               <Link 
@@ -150,7 +150,7 @@ const Navigation = () => {
             </div>
 
             {/* Набор кнопок - скрыт на мобильных */}
-            <div className="hidden sm:flex items-center gap-3">
+            <div className="hidden xl:flex items-center gap-3">
               <div className="flex justify-start items-center gap-3 p-1 rounded-[100px] bg-white shadow-[0px_0px_22.9px_0_rgba(200,200,200,0.25)]">
                 {menuItems.map((item) => (
                   <button

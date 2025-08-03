@@ -22,56 +22,30 @@ const Hero = () => {
         }}
       />
 
-      {/* Фоновый контейнер с изображением - десктопная версия */}
+      {/* Планшет/десктоп картинка (640px-1279px) */}
       <div
-        className="w-full h-full absolute inset-0 hidden sm:block"
-        // style={{
-        //   backgroundImage: 'url(/hero.png)'
-        // }}
+        className="w-full h-full max-w-[1440px] absolute left-1/2 transform -translate-x-1/2 overflow-hidden bg-cover bg-center bg-no-repeat hidden sm:block xl:hidden"
         style={{
-          // background: 'linear-gradient(135deg, #ACCCDC 0%, #C7D6DE 100%)'
+          backgroundImage: 'url(/hero-tablet.png)',
+          backgroundSize: 'cover'
         }}
-      >
-        {/* {heroImages.map((image, index) => (
-          <img
-            key={index}
-            src={image.src}
-            alt={`Hero image ${index + 1}`}
-            className="absolute w-auto h-auto"
-            style={{
-              left: image.left,
-              top: image.top,
-              right: image.right,
-            }}
-          />
-        ))} */}
-        {/* <img
-          src={'/hero-v2.png'}
-          alt={`Hero image`}
-          className="absolute w-auto h-auto"
-          style={{
-            // left: '30%',
-            // top: '100px',
-            // width: '960px',
-          }}
-        /> */}
-      </div>
+      />
 
       {/* Контент с ограничением максимальной ширины */}
       <div className="w-full h-full mx-auto relative">
-        <div className="absolute top-[123px] sm:top-[255px] left-[20px] sm:left-[40px] flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-9 sm:gap-[55px] z-10">
+        <div className="absolute top-[123px] xl:top-[255px] left-[20px] xl:left-[40px] flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 gap-9 xl:gap-[55px] z-10">
           {/* Контент с текстом */}
-          <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 w-[335px] sm:w-[685px] relative gap-9 sm:gap-[55px]">
-            <h1 className="self-stretch flex-grow-0 flex-shrink-0 w-[335px] sm:w-[675px] text-[50px] sm:text-[90px] text-left text-[#1e1e1e] font-tinos leading-tight">
-              <span className="flex-grow-0 flex-shrink-0 w-[335px] sm:w-[675px] text-[50px] sm:text-[90px] text-left text-[#1e1e1e]">
-                Build bridges,{' '}
-              </span>
-              <br />
-              <span className="flex-grow-0 flex-shrink-0 w-[335px] sm:w-[675px] text-[50px] sm:text-[90px] text-left text-[#1e1e1e]">
+          <div className="flex flex-col justify-start items-start relative gap-9 xl:gap-[55px]">
+            <h1 className="self-stretch flex-grow-0 flex-shrink-0 w-[335px] sm:w-[584px] xl:w-[675px] text-[50px] xl:text-[90px] text-left text-[#1e1e1e] font-tinos leading-tight">
+              {/* <span className="flex-grow-0 flex-shrink-0 w-[335px] xl:w-[675px] text-[50px] xl:text-[90px] text-left text-[#1e1e1e]"> */}
+                Build bridges, not barriers — pay and grow
+              {/* </span> */}
+              {/* <br className="hidden sm:block xl:hidden" /> */}
+              {/* <span className="flex-grow-0 flex-shrink-0 w-[335px] xl:w-[675px] text-[50px] xl:text-[90px] text-left text-[#1e1e1e]">
                 not barriers — pay and grow
-              </span>
+              </span> */}
             </h1>
-            <p className="self-stretch flex-grow-0 flex-shrink-0 w-[335px] sm:w-[685px] opacity-80 text-xl sm:text-2xl text-left text-[#1e1e1e] font-instrument-sans">
+            <p className="self-stretch flex-grow-0 flex-shrink-0 w-[335px] xl:w-[685px] opacity-80 text-xl xl:text-2xl text-left text-[#1e1e1e] font-instrument-sans">
               Over 300+ payments methods
             </p>
           </div>
