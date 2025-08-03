@@ -7,6 +7,7 @@ import { Switch } from '@/components/ui/switch'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
+import Footer from '@/components/Footer'
 
 interface FormData {
     email: string
@@ -50,11 +51,12 @@ export default function ContactPage() {
     if (isSubmitted) {
         return (
             <div
-                className="min-h-screen flex items-center justify-center p-5"
+                className="min-h-screen flex flex-col items-center justify-center"
                 style={{
                     background: 'linear-gradient(135deg, #ACCCDC 0%, #C7D6DE 100%)'
                 }}
             >
+                <div className="mt-auto" />
                 <div className="max-w-[335px] xl:max-w-[550px] h-[400px] xl:p-10 rounded-[40px] bg-white shadow-[0px_0px_42.5px_0_rgba(153,153,153,0.25)]">
                     <div className="flex flex-col justify-center items-center h-full gap-[30px]">
                         {/* Иконка успеха */}
@@ -88,17 +90,20 @@ export default function ContactPage() {
                         </div>
                     </div>
                 </div>
+                <div className="min-h-[40px] mt-auto" />
+                <Footer sticky={false} />
             </div>
         )
     }
 
     return (
         <div
-            className="min-h-screen flex items-center justify-center p-5"
+            className="min-h-screen flex flex-col items-center justify-center w-full pt-20"
             style={{
                 background: 'linear-gradient(135deg, #ACCCDC 0%, #C7D6DE 100%)'
             }}
         >
+            <div className="mt-auto" />
             <div className="xl:min-w-[550px] sm:min-w-[335px] min-w-[280px] xl:p-10 p-[20px] xl:rounded-[40px] rounded-[20px] bg-white shadow-[0px_0px_42.5px_0_rgba(153,153,153,0.25)]">
                 <form onSubmit={handleSubmit} className="flex flex-col gap-12 ">
                     {/* Заголовок */}
@@ -253,6 +258,8 @@ export default function ContactPage() {
                     </Button>
                 </form>
             </div>
+            <div className="h-[40px] mt-auto" />
+            <Footer sticky={false} />
         </div>
     )
 } 
