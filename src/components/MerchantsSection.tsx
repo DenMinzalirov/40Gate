@@ -108,7 +108,7 @@ const MerchantsSection = () => {
 
                 // Когда текстовый блок достиг верхней границы браузера
                 if (textBlockTop <= 0) {
-                    const textBlockHeight = textBlockRect.height + 100
+                    const textBlockHeight = textBlockRect.height
                     // console.log('🎯 Текстовый блок достиг верхней границы браузера!')
                     // console.log('📏 Полная высота текстового блока:', textBlockHeight, 'px')
                     // console.log('📍 Позиция top:', textBlockTop, 'px')

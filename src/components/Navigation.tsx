@@ -17,6 +17,8 @@ const Navigation = () => {
   const hoverThreshold = 80
   const scrollUpThreshold = 80
 
+  // Проверяем, находимся ли мы на странице contact
+  const isContactPage = pathname.includes('contact')
 
   useEffect(() => {
     let lastScrollY = 0
@@ -149,34 +151,41 @@ const Navigation = () => {
               </Link>
             </div>
 
-            {/* Набор кнопок - скрыт на мобильных */}
-            <div className="hidden xl:flex items-center gap-3">
-              <div className="flex justify-start items-center gap-3 p-1 rounded-[100px] bg-white shadow-[0px_0px_22.9px_0_rgba(200,200,200,0.25)]">
-                {menuItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => handleTabChange(item.id)}
-                    className={`flex cursor-pointer justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] text-base text-left transition-all duration-200 ${
-                      activeTab === item.id
-                        ? 'bg-[#f2f4f3] text-[#1e1e1e]'
-                        : 'text-[#1e1e1e] hover:bg-gray-50'
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ))}
+            {/* Набор кнопок - скрыт на мобильных и на странице contact */}
+            {!isContactPage && (
+              <div className="hidden xl:flex items-center gap-3">
+                <div className="flex justify-start items-center gap-3 p-1 rounded-[100px] bg-white shadow-[0px_0px_22.9px_0_rgba(200,200,200,0.25)]">
+                  {menuItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => handleTabChange(item.id)}
+                      className={`flex cursor-pointer justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] text-base text-left transition-all duration-200 ${
+                        activeTab === item.id
+                          ? 'bg-[#f2f4f3] text-[#1e1e1e]'
+                          : 'text-[#1e1e1e] hover:bg-gray-50'
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            {/* Кнопка Contact Us - одна для всех устройств */}
-            <div className="flex items-center">
-              <Link 
-                href="/contact"
-                className="flex justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#1e1e1e] text-white text-base hover:bg-gray-800 transition-colors"
-              >
-                Contact Us
-              </Link>
-            </div>
+            {/* Кнопка Contact Us - скрыта на странице contact */}
+            {!isContactPage && (
+              <div className="flex items-center">
+                <Link 
+                  href="/contact"
+                  className="flex justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#1e1e1e] text-white text-base hover:bg-gray-800 transition-colors"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            )}
+
+            {/* Пустой div для центрирования логотипа на странице contact */}
+            {isContactPage && <div></div>}
           </div>
         </div>
       </div>
