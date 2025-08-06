@@ -33,6 +33,8 @@ export default function ContactPage() {
     })
 
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState<string | null>(null)
 
     const handleInputChange = (field: keyof FormData, value: string | boolean) => {
         setFormData(prev => ({
@@ -41,11 +43,33 @@ export default function ContactPage() {
         }))
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        console.log('Form submitted:', formData)
-        // Здесь будет логика отправки формы
-        setIsSubmitted(true)
+        setIsLoading(true)
+        setError(null)
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+
+            const result = await response.json()
+
+            if (response.ok) {
+                setIsSubmitted(true)
+            } else {
+                setError(result.error || 'Something went wrong. Please try again.')
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error)
+            setError('Network error. Please check your connection and try again.')
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     if (isSubmitted) {
@@ -61,7 +85,6 @@ export default function ContactPage() {
                     <div className="flex flex-col justify-center items-center h-full gap-[30px]">
                         {/* Иконка успеха */}
                         <Image src="/thank-you.png" alt="Thank You" width={100} height={100} />
-
 
                         {/* Контент */}
                         <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0 relative gap-3">
@@ -105,11 +128,18 @@ export default function ContactPage() {
         >
             <div className="mt-auto" />
             <div className="sm:min-w-[550px] min-w-[280px] sm:p-10 p-[20px] sm:rounded-[40px] rounded-[20px] bg-white shadow-[0px_0px_42.5px_0_rgba(153,153,153,0.25)]">
-                <form onSubmit={handleSubmit} className="flex flex-col gap-12 ">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-12">
                     {/* Заголовок */}
                     <h1 className="sm:text-[50px] text-[36px] text-left text-[#1e1e1e] font-tinos leading-tight">
                         Let&apos;s get started
                     </h1>
+
+                    {/* Сообщение об ошибке */}
+                    {error && (
+                        <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                            <p className="text-red-600 text-sm">{error}</p>
+                        </div>
+                    )}
 
                     {/* Основная информация */}
                     <div className="flex flex-col gap-9">
@@ -133,6 +163,7 @@ export default function ContactPage() {
                                     value={formData.email}
                                     onChange={(e) => handleInputChange('email', e.target.value)}
                                     className="h-[50px] px-4 py-2.5 rounded-[10px] border border-[#1e1e1e]/10 text-base placeholder:text-[#1e1e1e]/40 focus:border-[#0008D4] focus:ring-0"
+                                    required
                                 />
                             </div>
 
@@ -151,6 +182,7 @@ export default function ContactPage() {
                                     value={formData.companyName}
                                     onChange={(e) => handleInputChange('companyName', e.target.value)}
                                     className="h-[50px] px-4 py-2.5 rounded-[10px] border border-[#1e1e1e]/10 text-base placeholder:text-[#1e1e1e]/40 focus:border-[#0008D4] focus:ring-0"
+                                    required
                                 />
                             </div>
 
@@ -252,9 +284,10 @@ export default function ContactPage() {
                     {/* Кнопка отправки */}
                     <Button
                         type="submit"
-                        className="h-[50px] px-5 py-2.5 rounded-[100px] bg-[#0008D4] text-base text-white hover:bg-[#0008D4]/90"
+                        disabled={isLoading}
+                        className="h-[50px] px-5 py-2.5 rounded-[100px] bg-[#0008D4] text-base text-white hover:bg-[#0008D4]/90 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        Submit
+                        {isLoading ? 'Submitting...' : 'Submit'}
                     </Button>
                 </form>
             </div>

@@ -108,7 +108,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ru" className={`${instrumentSans.variable} ${tinos.variable}`}>
+    <html lang="en" className={`${instrumentSans.variable} ${tinos.variable}`}>
       <body>
         <Navigation />
         {children}
