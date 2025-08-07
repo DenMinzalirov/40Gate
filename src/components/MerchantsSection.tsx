@@ -97,15 +97,7 @@ const MerchantsSection = () => {
         // Анимация карточек
         const animateStackCards = () => {
             const { marginY, elementHeight, cardTop, cardHeight, windowHeight, animationStartLine } = setStackCards()
-            // console.log({cardTop, cardHeight, windowHeight, elementHeight, marginY});
-
             const top = element.getBoundingClientRect().top
-            // console.log('Element top position:', top, 'Animation start line:', animationStartLine)
-
-            // Логируем когда блок прилипает к верху
-            if (top <= 200) {
-                console.log('🚀 Блок прилип к верху! top =', top)
-            }
 
             // Логируем позицию текстового блока
             const textBlock = document.getElementById('text-block') as HTMLElement
@@ -116,7 +108,7 @@ const MerchantsSection = () => {
 
                 // Когда текстовый блок достиг верхней границы браузера
                 if (textBlockTop <= 0) {
-                    const textBlockHeight = textBlockRect.height + 100
+                    const textBlockHeight = textBlockRect.height
                     // console.log('🎯 Текстовый блок достиг верхней границы браузера!')
                     // console.log('📏 Полная высота текстового блока:', textBlockHeight, 'px')
                     // console.log('📍 Позиция top:', textBlockTop, 'px')
@@ -124,7 +116,7 @@ const MerchantsSection = () => {
                     // Устанавливаем высоту текстового блока как top для карточек
                     for (let i = 0; i < items.length; i++) {
                         // Устанавливаем top в зависимости от размера экрана
-                        const isMobile = window.innerWidth <= 640
+                        const isMobile = window.innerWidth <= 1280
                         const topValue = isMobile ? 30 : textBlockHeight
                             ; (items[i] as HTMLElement).style.top = `${topValue}px`
                     }
@@ -198,14 +190,14 @@ const MerchantsSection = () => {
     }, [])
 
     return (
-        <section id="merchants-section" className="w-full pt-[120px] sm:pt-[200px] px-5 sm:px-10">
+        <section id="merchants-section" className="w-full pt-[120px] xl:pt-[200px] px-5 xl:px-10">
             <div className="w-full max-w-[1440px] mx-auto">
                 {/* Текстовый блок для заполнения пустого пространства */}
                 <div
                     id="text-block"
-                    className="flex flex-col sm:flex-row sm:justify-between sm:items-end self-stretch flex-grow-0 relative gap-6 sm:gap-0 mb-[100px] sm:sticky sm:-top-10"
+                    className="flex flex-col xl:flex-row xl:justify-between xl:items-end self-stretch flex-grow-0 relative gap-6 xl:gap-0 mb-[100px] xl:sticky xl:-top-10"
                 >
-                    <div className="flex flex-col justify-start items-start flex-grow-0 w-full gap-6 sm:gap-[30px]">
+                    <div className="flex flex-col justify-start items-start flex-grow-0 w-full gap-6 xl:gap-[30px]">
                         <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-3">
                             {/* SVG иконка - адаптивная */}
                             <svg
@@ -214,24 +206,24 @@ const MerchantsSection = () => {
                                 viewBox="0 0 13 14"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="flex-grow-0 flex-shrink-0 sm:w-[14px] sm:h-[14px]"
+                                className="flex-grow-0 flex-shrink-0 xl:w-[14px] xl:h-[14px]"
                                 preserveAspectRatio="none"
                             >
                                 <circle cx="6.25" cy="7" r="6.25" fill="#0008D4" />
                             </svg>
-                            <p className="flex-grow-0 flex-shrink-0 text-xl sm:text-2xl text-left text-[#1e1e1e] font-instrument-sans">
+                            <p className="flex-grow-0 flex-shrink-0 text-xl xl:text-2xl text-left text-[#1e1e1e] font-instrument-sans">
                                 For merchants
                             </p>
                         </div>
                         <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 relative gap-3.5">
-                            <p className="self-stretch flex-grow-0 flex-shrink-0 w-full sm:max-w-[1067px] text-3xl sm:text-[55px] text-left text-[#1e1e1e] font-tinos leading-tight">
+                            <p className="self-stretch flex-grow-0 flex-shrink-0 w-full xl:max-w-[1067px] text-3xl xl:text-[55px] text-left text-[#1e1e1e] font-tinos leading-tight">
                                 AI-powered tools to scale your business — from smart cascading to chargeback prevention.
                                 Modern payment infrastructure built with machine learning created for global growth.
                             </p>
                         </div>
                     </div>
                     {/* Номер - только для десктопа */}
-                    <p className="hidden sm:block flex-grow-0 flex-shrink-0 text-[55px] text-left text-[#0008D4] font-tinos">
+                    <p className="hidden xl:block flex-grow-0 flex-shrink-0 text-[55px] text-left text-[#0008D4] font-tinos">
                         (01)
                     </p>
                 </div>
@@ -251,7 +243,7 @@ const MerchantsSection = () => {
                                     alt={block.title}
                                     width={224}
                                     height={214}
-                                    className="flex-grow-0 flex-shrink-0 sm:min-w-[324px] min-w-[214px] order-2 sm:order-none mx-auto sm:mx-0 my-6 sm:my-0"
+                                    className="flex-grow-0 flex-shrink-0 xl:min-w-[324px] min-w-[214px] order-2 xl:order-none mx-auto xl:mx-0 my-6 xl:my-0"
                                 />}
                                 bgColor={block.bgColor}
                                 textColor={block.textColor}

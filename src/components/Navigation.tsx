@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
+import { logPublicEnvironmentVariables } from '@/lib/env-logger'
 
 const Navigation = () => {
   const router = useRouter()
@@ -17,6 +18,13 @@ const Navigation = () => {
   const hoverThreshold = 80
   const scrollUpThreshold = 80
 
+  // Проверяем, находимся ли мы на странице contact
+  const isContactPage = pathname.includes('contact')
+
+  // useEffect(() => {
+  //   // Логируем публичные переменные окружения при первом рендере
+  //   logPublicEnvironmentVariables()
+  // }, [])
 
   useEffect(() => {
     let lastScrollY = 0
@@ -129,9 +137,9 @@ const Navigation = () => {
         isVisible ? '' : 'nav-hidden'
       }`}
     >
-      <div className="w-full px-5 sm:px-10">
+      <div className="w-full px-5 xl:px-10">
         <div className="mx-auto">
-          <div className="flex items-center justify-between h-16 sm:h-16 pt-5 sm:pt-0">
+          <div className="flex items-center justify-between h-16 xl:h-16 pt-5 xl:pt-0">
             {/* Логотип */}
             <div className="flex items-center">
               <Link 
@@ -149,34 +157,41 @@ const Navigation = () => {
               </Link>
             </div>
 
-            {/* Набор кнопок - скрыт на мобильных */}
-            <div className="hidden sm:flex items-center gap-3">
-              <div className="flex justify-start items-center gap-3 p-1 rounded-[100px] bg-white shadow-[0px_0px_22.9px_0_rgba(200,200,200,0.25)]">
-                {menuItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => handleTabChange(item.id)}
-                    className={`flex cursor-pointer justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] text-base text-left transition-all duration-200 ${
-                      activeTab === item.id
-                        ? 'bg-[#f2f4f3] text-[#1e1e1e]'
-                        : 'text-[#1e1e1e] hover:bg-gray-50'
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ))}
+            {/* Набор кнопок - скрыт на мобильных и на странице contact */}
+            {!isContactPage && (
+              <div className="hidden xl:flex items-center gap-3">
+                <div className="flex justify-start items-center gap-3 p-1 rounded-[100px] bg-white shadow-[0px_0px_22.9px_0_rgba(200,200,200,0.25)]">
+                  {menuItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => handleTabChange(item.id)}
+                      className={`flex cursor-pointer justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] text-base text-left transition-all duration-200 ${
+                        activeTab === item.id
+                          ? 'bg-[#f2f4f3] text-[#1e1e1e]'
+                          : 'text-[#1e1e1e] hover:bg-gray-50'
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            {/* Кнопка Contact Us - одна для всех устройств */}
-            <div className="flex items-center">
-              <Link 
-                href="/contact"
-                className="flex justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#1e1e1e] text-white text-base hover:bg-gray-800 transition-colors"
-              >
-                Contact Us
-              </Link>
-            </div>
+            {/* Кнопка Contact Us - скрыта на странице contact */}
+            {!isContactPage && (
+              <div className="flex items-center">
+                <Link 
+                  href="/contact"
+                  className="flex justify-center items-center gap-2.5 px-5 py-2.5 rounded-[100px] bg-[#1e1e1e] text-white text-base hover:bg-gray-800 transition-colors"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            )}
+
+            {/* Пустой div для центрирования логотипа на странице contact */}
+            {isContactPage && <div></div>}
           </div>
         </div>
       </div>

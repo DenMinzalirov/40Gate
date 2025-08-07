@@ -71,7 +71,7 @@ a {
 
 @media (min-width: 640px) {
   .stack-cards__item {
-    height: 400px;
+    height: auto;
   }
 }
 
@@ -113,7 +113,7 @@ a {
 }
 
 /* Эффект заливки круга для карточек - только для десктопа */
-@media (min-width: 640px) {
+@media (min-width: 1280px) {
   .payment-card-hover {
     position: relative;
     overflow: hidden;

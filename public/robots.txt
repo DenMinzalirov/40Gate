@@ -1,9 +1,6 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://40gate.com/sitemap.xml
-
 # Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
@@ -18,5 +15,8 @@ Allow: /privacy-policy
 Allow: /terms-of-service
 Allow: /cookie-policy
 
+# Sitemap
+Sitemap: https://40gate.com/sitemap.xml
+
 # Crawl-delay for respectful crawling
-Crawl-delay: 1 
+Crawl-delay: 1

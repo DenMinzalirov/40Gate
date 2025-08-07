@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Instrument_Sans, Tinos } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
+import { logEnvironmentVariables } from '@/lib/env-logger'
 
 // Настройка шрифта Instrument Sans
 const instrumentSans = Instrument_Sans({
@@ -51,6 +52,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: '40Gate - Payment Gateway Platform | Build bridges, not barriers',
     description: '40Gate is a leading payment gateway platform offering over 300+ payment methods. Connect with 1000+ merchants, 30+ countries, and grow your business with our comprehensive payment solutions.',
@@ -91,10 +100,15 @@ export const metadata: Metadata = {
   },
   category: 'payment processing',
   classification: 'payment gateway platform',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+  manifest: '/manifest.json',
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
   themeColor: '#0008D4',
   colorScheme: 'light',
-  manifest: '/manifest.json',
 }
 
 // Структурированные данные для SEO
@@ -155,15 +169,57 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Логируем переменные окружения при старте (только в development)
+  if (typeof window === 'undefined') {
+    logEnvironmentVariables()
+  }
+  
   return (
     <html lang="en" className={`${instrumentSans.variable} ${tinos.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="msapplication-TileColor" content="#0008D4" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
+        {/* Google Analytics */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                    page_location: window.location.href,
+                    page_title: document.title,
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
+        
+        {/* Yandex Metrica */}
+        {process.env.NEXT_PUBLIC_YANDEX_METRICA_ID && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+                (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                ym(${process.env.NEXT_PUBLIC_YANDEX_METRICA_ID}, "init", {
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+                });
+              `,
+            }}
+          />
+        )}
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -172,6 +228,19 @@ export default function RootLayout({
       <body>
         <Navigation />
         {children}
+        
+        {/* Yandex Metrica NoScript */}
+        {process.env.NEXT_PUBLIC_YANDEX_METRICA_ID && (
+          <noscript>
+            <div>
+              <img
+                src={`https://mc.yandex.ru/watch/${process.env.NEXT_PUBLIC_YANDEX_METRICA_ID}`}
+                style={{ position: 'absolute', left: '-9999px' }}
+                alt=""
+              />
+            </div>
+          </noscript>
+        )}
       </body>
     </html>
   )
