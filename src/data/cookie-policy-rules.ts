@@ -441,7 +441,7 @@ export const cookiePolicyRules: Rule[] = [
             {
                 id: "8.1",
                 title: "Cookie-Related Inquiries",
-                content: `For questions about our use of cookies:<br />Email: support@forty.gate`
+                content: `For questions about our use of cookies:<br />Email: sales@fortygate.io`
             }
         ]
     }

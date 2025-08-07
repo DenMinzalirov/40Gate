@@ -554,6 +554,6 @@ export const termsOfServiceRules: Rule[] = [
     {
         id: "23",
         title: "Contact Information",
-        content: `For questions about these Terms of Service, please contact:<br />Email: support@forty.gate`
+        content: `For questions about these Terms of Service, please contact:<br />Email: sales@fortygate.io`
     }
 ] 

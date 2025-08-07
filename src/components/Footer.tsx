@@ -26,7 +26,7 @@ const Footer = ({ sticky = true }: FooterProps) => {
                                 Let&apos;s talk!
                             </p>
                             <p className="flex-grow-0 flex-shrink-0 text-4xl text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
-                                Support@forty.gate
+                                sales@fortygate.io
                             </p>
                         </div>
 
@@ -107,7 +107,7 @@ const Footer = ({ sticky = true }: FooterProps) => {
                                     Let&apos;s talk!
                                 </p>
                                 <p className="flex-grow-0 flex-shrink-0 text-[40px] text-left text-[#f2f4f3] cursor-pointer hover:opacity-80 transition-opacity">
-                                    Support@forty.gate
+                                    sales@fortygate.io
                                 </p>
                             </div>
                         </div>
