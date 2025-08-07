@@ -112,7 +112,16 @@ ADMIN_EMAIL=admin@40gate.com
 
 # Google Sheets configuration
 GOOGLE_SHEETS_WEBHOOK_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
+
+# Analytics (optional)
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_YANDEX_METRICA_ID=12345678
 ```
+
+**Важно:** 
+- Скопируйте `env.example` в `.env.local`
+- Замените значения на реальные
+- Никогда не коммитьте `.env.local` в git
 
 ## 4. Тестирование
 

@@ -15,8 +15,8 @@ export interface GoogleSheetsData {
 
 export async function saveToGoogleSheets(data: GoogleSheetsData): Promise<boolean> {
   try {
-    // URL вашего Google Apps Script (нужно создать и опубликовать)
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbweg_N8qZDwj_7PRezzR2GadiYdYl2T-1DNFNkopw20ucp6KhBCQclaCuvf7mw_jO4T/exec'
+    // URL вашего Google Apps Script из переменной окружения
+    const scriptUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL
     
     console.log('Sending data to Google Sheets:', data)
     console.log('Script URL:', scriptUrl)

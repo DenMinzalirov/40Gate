@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
+import { logPublicEnvironmentVariables } from '@/lib/env-logger'
 
 const Navigation = () => {
   const router = useRouter()
@@ -19,6 +20,11 @@ const Navigation = () => {
 
   // Проверяем, находимся ли мы на странице contact
   const isContactPage = pathname.includes('contact')
+
+  // useEffect(() => {
+  //   // Логируем публичные переменные окружения при первом рендере
+  //   logPublicEnvironmentVariables()
+  // }, [])
 
   useEffect(() => {
     let lastScrollY = 0

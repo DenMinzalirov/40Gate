@@ -1,3 +1,5 @@
+# 40Gate - Payment Gateway Platform
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -16,9 +18,32 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `env.example` to `.env.local` and configure the following variables:
+
+```env
+# Email configuration
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+ADMIN_EMAIL=admin@40gate.com
+
+# Google Sheets configuration
+GOOGLE_SHEETS_WEBHOOK_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
+
+# Analytics (optional)
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_YANDEX_METRICA_ID=12345678
+```
+
+## Features
+
+- ✅ Contact form with Google Sheets integration
+- ✅ Email notifications
+- ✅ SEO optimized
+- ✅ PWA support
+- ✅ Responsive design
+- ✅ Modern UI with Tailwind CSS
 
 ## Learn More
 
