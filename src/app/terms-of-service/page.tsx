@@ -1,19 +1,8 @@
 'use client'
 
-import { Rule, SubRule } from '@/types/rules'
+import { Rule } from '@/types/rules'
 import { termsOfServiceRules } from '@/data/terms-of-service-rules'
 import Footer from '@/components/Footer'
-import Link from 'next/link'
-
-export const metadata = {
-  title: 'Terms of Service - 40Gate Payment Gateway Platform',
-  description: '40Gate Terms of Service. Read our terms and conditions for using our payment gateway platform and services.',
-  keywords: ['terms of service', '40Gate terms', 'payment gateway terms', 'service agreement', 'terms and conditions'],
-  openGraph: {
-    title: 'Terms of Service - 40Gate Payment Gateway Platform',
-    description: '40Gate Terms of Service. Read our terms and conditions for using our payment gateway platform and services.',
-  }
-}
 
 // Компонент для отображения одного правила
 const RuleItem = ({ rule }: { rule: Rule }) => {

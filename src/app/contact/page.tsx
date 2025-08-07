@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import Footer from '@/components/Footer'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -9,17 +8,6 @@ import { Switch } from '@/components/ui/switch'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
-import Footer from '@/components/Footer'
-
-export const metadata = {
-  title: 'Contact Us - 40Gate Payment Gateway Platform',
-  description: 'Get in touch with 40Gate for payment gateway solutions. Contact our team for support, partnerships, or to learn more about our payment processing services.',
-  keywords: ['contact 40Gate', 'payment gateway support', 'payment processing contact', '40Gate contact'],
-  openGraph: {
-    title: 'Contact Us - 40Gate Payment Gateway Platform',
-    description: 'Get in touch with 40Gate for payment gateway solutions. Contact our team for support, partnerships, or to learn more about our payment processing services.',
-  }
-}
 
 interface FormData {
     email: string
