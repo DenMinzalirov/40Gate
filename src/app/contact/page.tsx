@@ -127,7 +127,7 @@ export default function ContactPage() {
             }}
         >
             <div className="mt-auto" />
-            <div className="sm:min-w-[550px] min-w-[280px] sm:p-10 p-[20px] sm:rounded-[40px] rounded-[20px] bg-white shadow-[0px_0px_42.5px_0_rgba(153,153,153,0.25)]">
+            <div className="sm:min-w-[550px] min-w-[85%] sm:p-10 p-[20px] sm:rounded-[40px] rounded-[20px] bg-white shadow-[0px_0px_42.5px_0_rgba(153,153,153,0.25)]">
                 <form onSubmit={handleSubmit} className="flex flex-col gap-12">
                     {/* Заголовок */}
                     <h1 className="sm:text-[50px] text-[36px] text-left text-[#1e1e1e] font-tinos leading-tight">
