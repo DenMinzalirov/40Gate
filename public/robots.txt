@@ -1,22 +1,18 @@
+# *
 User-agent: *
 Allow: /
-
-# Disallow admin and private areas
+Disallow: /contact
+Disallow: /privacy-policy
+Disallow: /terms-of-service
+Disallow: /cookie-policy
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /static/
 
-# Allow important pages
-Allow: /
-Allow: /contact
-Allow: /privacy-policy
-Allow: /terms-of-service
-Allow: /cookie-policy
+# Host
+Host: https://www.fortygates.com
 
-# Sitemap
-Sitemap: https://40gate.com/sitemap.xml
-
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
+# Sitemaps
+Sitemap: https://www.fortygates.com/sitemap.xml

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Head from 'next/head'
 import Footer from '@/components/Footer'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -126,6 +127,9 @@ export default function ContactPage() {
                 background: 'linear-gradient(135deg, #ACCCDC 0%, #C7D6DE 100%)'
             }}
         >
+            <Head>
+                <meta name="robots" content="noindex, nofollow" />
+            </Head>
             <div className="mt-auto" />
             <div className="sm:min-w-[550px] min-w-[85%] sm:p-10 p-[20px] sm:rounded-[40px] rounded-[20px] bg-white shadow-[0px_0px_42.5px_0_rgba(153,153,153,0.25)]">
                 <form onSubmit={handleSubmit} className="flex flex-col gap-12">

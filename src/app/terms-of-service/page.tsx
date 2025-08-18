@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+import Head from 'next/head'
 import { Rule } from '@/types/rules'
 import { termsOfServiceRules } from '@/data/terms-of-service-rules'
 import Footer from '@/components/Footer'
@@ -62,6 +64,9 @@ const TermsOfServicePage = () => {
 
     return (
         <div className="min-h-screen pt-10 bg-[#f2f4f3]">
+            <Head>
+                <meta name="robots" content="noindex" />
+            </Head>
             <div className="w-full pt-10 px-5 pt-10 pb-5">
                 <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-[50px]">
                     <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-[50px]">

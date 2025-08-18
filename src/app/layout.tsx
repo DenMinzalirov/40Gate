@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://40gate.com'),
+  metadataBase: new URL('https://www.fortygates.com'),
   alternates: {
     canonical: '/',
   },
@@ -63,8 +63,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: '40Gate - Payment Gateway Platform | Build bridges, not barriers',
     description: '40Gate is a leading payment gateway platform offering over 300+ payment methods. Connect with 1000+ merchants, 30+ countries, and grow your business with our comprehensive payment solutions.',
-    url: 'https://40gate.com',
-    siteName: '40Gate',
+    url: 'https://www.fortygates.com',
+    siteName: 'Fortygates',
     images: [
       {
         url: '/logo.png',
@@ -117,8 +117,8 @@ const jsonLd = {
   "@type": "Organization",
   "name": "40Gate",
   "alternateName": "40Gate Payment Gateway",
-  "url": "https://40gate.com",
-  "logo": "https://40gate.com/logo.png",
+  "url": "https://www.fortygates.com",
+  "logo": "https://www.fortygates.com/logo.png",
   "description": "Leading payment gateway platform offering over 300+ payment methods",
   "foundingDate": "2024",
   "contactPoint": {
