@@ -43,7 +43,7 @@ This document outlines the SEO optimization implemented for the 40Gate payment g
 
 ### Contact Page (/contact)
 - Contact form with proper validation
-- Support email: sales@fortygate.io
+- Support email: sales@40gate.io
 - Clear call-to-action
 
 ### Legal Pages
@@ -181,4 +181,4 @@ This document outlines the SEO optimization implemented for the 40Gate payment g
 - Performance optimization
 
 ## Contact Information
-For SEO-related questions or updates, contact: sales@fortygate.io 
+For SEO-related questions or updates, contact: sales@40gate.io 

@@ -255,7 +255,7 @@ export const privacyPolicyRules: Rule[] = [
                 id: "8.6",
                 title: "Exercising Your Rights",
                 content: `To exercise your rights, please contact us at:<br />
-                Email: sales@fortygate.io<br />
+                Email: sales@40gate.io<br />
                 Address: 28 Oktovriou, 1 ENGOMI BUSINESS CENTER, 1st floor, Flat/Office 111, Egkomi, 2414, Nicosia, Cyprus<br />
                 We will respond to your request within 30 days and may require identity verification.`
             }
@@ -316,6 +316,6 @@ export const privacyPolicyRules: Rule[] = [
         id: "11",
         title: "Contact Information",
         content: `For questions about this Privacy Policy or our data practices:<br />
-        Email: sales@fortygate.io`
+        Email: sales@40gate.io`
     }
 ] 

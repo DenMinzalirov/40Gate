@@ -124,7 +124,7 @@ const jsonLd = {
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer service",
-    "email": "sales@fortygate.io"
+    "email": "sales@40gate.io"
   },
   "sameAs": [
     "https://twitter.com/40gate",
